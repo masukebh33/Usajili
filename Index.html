@@ -14,7 +14,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
-/* ===================== TOKENS / MSINGI ===================== */
 :root{
   --green-dark:#0a3d2e;
   --green-light:#1a7a5a;
@@ -22,10 +21,8 @@
   --gold:#FFD700;
   --gold-deep:#c9a800;
   --ink:#0e2620;
-  --paper:#ffffff;
   --line:#d8e6df;
   --danger:#c0392b;
-  --radius:14px;
   --shadow:0 20px 60px -20px rgba(10,61,46,.45);
   font-size:16px;
 }
@@ -44,26 +41,8 @@ body{
   background-attachment:fixed;
 }
 body::before{
-  content:'';
-  position:fixed;
-  inset:0;
-  z-index:-2;
-  pointer-events:none;
-  opacity:.16;
+  content:'';position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.16;
   background-image:repeating-linear-gradient(135deg, rgba(255,255,255,.12) 0 1px, transparent 1px 42px);
-}
-body::after{
-  content:'';
-  position:fixed;
-  z-index:-1;
-  right:-130px;
-  bottom:-180px;
-  width:520px;
-  height:630px;
-  opacity:.08;
-  pointer-events:none;
-  background:url('icon.svg') center/contain no-repeat;
-  filter:grayscale(.15) saturate(.8);
 }
 .topbar,.shell,footer.app-footer{position:relative;z-index:1;}
 h1,h2,h3,.brand,.section-title{font-family:'Sora',sans-serif;}
@@ -77,112 +56,33 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   *{animation-duration:.001ms !important; transition-duration:.001ms !important;}
 }
 
-/* ===================== SEMESTER COUNTDOWN ===================== */
-.semester-countdown{
-  max-width:1180px;
-  margin:16px auto 0;
-  padding:0 clamp(16px,4vw,48px);
-  position:relative;
-  z-index:1;
-}
+/* SEMESTER COUNTDOWN */
+.semester-countdown{max-width:1180px;margin:16px auto 0;padding:0 clamp(16px,4vw,48px);position:relative;z-index:1;}
 .countdown-card{
   background:linear-gradient(135deg,rgba(10,61,46,.95),rgba(26,122,90,.95));
-  border:1px solid rgba(255,215,0,.4);
-  border-radius:18px;
-  padding:18px 22px;
-  box-shadow:0 20px 50px -20px rgba(10,61,46,.7);
-  color:#fff;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
+  border:1px solid rgba(255,215,0,.4);border-radius:18px;padding:18px 22px;
+  box-shadow:0 20px 50px -20px rgba(10,61,46,.7);color:#fff;text-align:center;
+  position:relative;overflow:hidden;
 }
 .countdown-card::before{
-  content:'';
-  position:absolute;
-  inset:0;
+  content:'';position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(circle at 20% 20%,rgba(255,215,0,.15),transparent 60%),
              radial-gradient(circle at 80% 80%,rgba(255,215,0,.1),transparent 60%);
-  pointer-events:none;
 }
-.countdown-label{
-  font-family:'Sora',sans-serif;
-  font-size:12px;
-  letter-spacing:.15em;
-  text-transform:uppercase;
-  color:var(--gold);
-  font-weight:700;
-  margin-bottom:4px;
-  position:relative;
-}
-.countdown-title{
-  font-family:'Sora',sans-serif;
-  font-size:clamp(16px,2.8vw,22px);
-  font-weight:700;
-  margin-bottom:14px;
-  color:#fff;
-  position:relative;
-}
+.countdown-label{font-family:'Sora',sans-serif;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:4px;position:relative;}
+.countdown-title{font-family:'Sora',sans-serif;font-size:clamp(16px,2.8vw,22px);font-weight:700;margin-bottom:14px;color:#fff;position:relative;}
 .countdown-title b{color:var(--gold);}
-.countdown-grid{
-  display:flex;
-  gap:10px;
-  justify-content:center;
-  flex-wrap:wrap;
-  position:relative;
-}
-.cd-unit{
-  background:rgba(0,0,0,.25);
-  border:1px solid rgba(255,215,0,.35);
-  border-radius:12px;
-  padding:10px 14px;
-  min-width:70px;
-  backdrop-filter:blur(6px);
-  transition:transform .25s ease;
-}
+.countdown-grid{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;position:relative;}
+.cd-unit{background:rgba(0,0,0,.25);border:1px solid rgba(255,215,0,.35);border-radius:12px;padding:10px 14px;min-width:70px;backdrop-filter:blur(6px);transition:transform .25s ease;}
 .cd-unit:hover{transform:translateY(-3px);}
-.cd-num{
-  font-family:'Sora',sans-serif;
-  font-size:clamp(22px,4.5vw,30px);
-  font-weight:800;
-  color:var(--gold);
-  display:block;
-  line-height:1;
-  font-variant-numeric:tabular-nums;
-}
-.cd-lbl{
-  font-size:9px;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  color:#bfe6d4;
-  margin-top:5px;
-  display:block;
-  font-weight:600;
-}
-.countdown-note{
-  margin-top:12px;
-  font-size:12px;
-  color:#dff3ea;
-  position:relative;
-}
-.countdown-done{
-  padding:16px;
-  text-align:center;
-  font-family:'Sora',sans-serif;
-  font-size:18px;
-  font-weight:700;
-  color:var(--gold);
-}
-@media (max-width:540px){
-  .cd-unit{min-width:58px;padding:8px 10px;}
-  .cd-num{font-size:20px;}
-}
+.cd-num{font-family:'Sora',sans-serif;font-size:clamp(22px,4.5vw,30px);font-weight:800;color:var(--gold);display:block;line-height:1;font-variant-numeric:tabular-nums;}
+.cd-lbl{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#bfe6d4;margin-top:5px;display:block;font-weight:600;}
+.countdown-note{margin-top:12px;font-size:12px;color:#dff3ea;position:relative;}
+.countdown-done{padding:16px;text-align:center;font-family:'Sora',sans-serif;font-size:18px;font-weight:700;color:var(--gold);}
+@media (max-width:540px){.cd-unit{min-width:58px;padding:8px 10px;}.cd-num{font-size:20px;}}
 
-/* ===================== TOPBAR ===================== */
-.topbar{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:18px clamp(16px,4vw,48px);
-  color:#eafff4;
-}
+/* TOPBAR */
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:18px clamp(16px,4vw,48px);color:#eafff4;}
 .brand{display:flex;align-items:center;gap:12px;min-width:0;}
 .crest{
   width:44px;height:44px;border-radius:50%;
@@ -196,49 +96,28 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .brand-text b{display:block;font-size:17px;letter-spacing:.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .brand-text span{display:block;font-size:12px;color:#bfe6d4;}
 .nav-tabs{display:flex;gap:6px;background:rgba(255,255,255,.08);padding:5px;border-radius:999px;backdrop-filter:blur(6px);}
-.nav-tabs button{
-  border:none;background:transparent;color:#eafff4;padding:9px 18px;border-radius:999px;
-  font-weight:600;font-size:14px;transition:transform .15s ease, background .15s ease;
-}
+.nav-tabs button{border:none;background:transparent;color:#eafff4;padding:9px 18px;border-radius:999px;font-weight:600;font-size:14px;transition:transform .15s ease, background .15s ease;}
 .nav-tabs button.active{background:var(--gold);color:var(--green-dark);}
 .nav-tabs .nav-admin-hidden{opacity:0.18; pointer-events:none; filter:grayscale(.35);}
-.login-actions{display:flex;flex-direction:column;gap:8px;}
 .install-app-btn{display:none;white-space:nowrap;}
 .install-app-btn.visible{display:inline-flex;align-items:center;gap:7px;}
-.nav-tabs button:hover{transform:translateY(-1px);}
 
-/* ===================== SHELL / CARD ===================== */
+/* SHELL */
 .shell{max-width:1180px;margin:0 auto;padding:8px clamp(16px,4vw,48px) 64px;}
-.glass-card{
-  background:rgba(255,255,255,.94);
-  border:1px solid rgba(255,255,255,.5);
-  border-radius:20px;
-  box-shadow:var(--shadow);
-  padding:clamp(20px,4vw,40px);
-}
+.glass-card{background:rgba(255,255,255,.94);border:1px solid rgba(255,255,255,.5);border-radius:20px;box-shadow:var(--shadow);padding:clamp(20px,4vw,40px);}
 
-/* ===================== PROGRESS ===================== */
+/* PROGRESS */
 .progress-wrap{margin-bottom:28px;}
-.progress-track{
-  position:relative;height:6px;border-radius:999px;background:var(--green-pale);overflow:hidden;
-}
-.progress-fill{
-  position:absolute;left:0;top:0;bottom:0;border-radius:999px;
-  background:linear-gradient(90deg,var(--green-light),var(--gold));
-  transition:width .35s ease;
-}
+.progress-track{position:relative;height:6px;border-radius:999px;background:var(--green-pale);overflow:hidden;}
+.progress-fill{position:absolute;left:0;top:0;bottom:0;border-radius:999px;background:linear-gradient(90deg,var(--green-light),var(--gold));transition:width .35s ease;}
 .progress-steps{display:flex;justify-content:space-between;margin-top:12px;}
 .pstep{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;font-size:12px;color:#7c9a8d;position:relative;}
-.pstep .dot{
-  width:30px;height:30px;border-radius:50%;background:#fff;border:2px solid var(--line);
-  display:flex;align-items:center;justify-content:center;font-weight:700;color:#7c9a8d;font-size:13px;
-  transition:all .2s ease;
-}
+.pstep .dot{width:30px;height:30px;border-radius:50%;background:#fff;border:2px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:700;color:#7c9a8d;font-size:13px;transition:all .2s ease;}
 .pstep.active .dot{border-color:var(--green-light);color:var(--green-dark);box-shadow:0 0 0 5px var(--green-pale);}
 .pstep.done .dot{background:var(--green-light);border-color:var(--green-light);color:#fff;}
 .pstep.active span.label{color:var(--green-dark);font-weight:700;}
 
-/* ===================== FORM SECTIONS ===================== */
+/* FORM */
 .section-title{font-size:20px;color:var(--green-dark);margin:0 0 4px;}
 .section-sub{color:#5f7d70;font-size:13.5px;margin:0 0 22px;}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px;}
@@ -252,7 +131,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .topbar{flex-direction:column;align-items:flex-start;gap:12px;}
   .brand{width:100%;}
 }
-
 .field{position:relative;}
 .field.full{grid-column:1/-1;}
 .field input[type=text],
@@ -264,39 +142,23 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   font-size:15px;background:#fbfdfc;color:var(--ink);transition:border-color .15s ease, box-shadow .15s ease;
 }
 .field textarea{resize:vertical;min-height:70px;}
-.field label{
-  position:absolute;left:14px;top:16px;color:#7c9a8d;font-size:15px;pointer-events:none;
-  transition:all .15s ease;background:transparent;padding:0 4px;
-}
-.field input:focus,.field select:focus,.field textarea:focus{
-  border-color:var(--green-light);box-shadow:0 0 0 4px var(--green-pale);outline:none;
-}
+.field label{position:absolute;left:14px;top:16px;color:#7c9a8d;font-size:15px;pointer-events:none;transition:all .15s ease;background:transparent;padding:0 4px;}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--green-light);box-shadow:0 0 0 4px var(--green-pale);outline:none;}
 .field input:focus + label,
 .field input:not(:placeholder-shown) + label,
 .field select:focus + label,
 .field select.filled + label,
 .field textarea:focus + label,
-.field textarea:not(:placeholder-shown) + label{
-  top:-9px;left:10px;font-size:11.5px;font-weight:700;color:var(--green-light);background:#fbfdfc;
-}
+.field textarea:not(:placeholder-shown) + label{top:-9px;left:10px;font-size:11.5px;font-weight:700;color:var(--green-light);background:#fbfdfc;}
 .field.error input,.field.error select,.field.error textarea{border-color:var(--danger);}
 .field.error{animation:shake .35s ease;}
 .err-msg{display:none;color:var(--danger);font-size:12px;margin-top:5px;font-weight:600;}
 .field.error .err-msg{display:block;}
-@keyframes shake{
-  10%,90%{transform:translateX(-1px);}
-  20%,80%{transform:translateX(2px);}
-  30%,50%,70%{transform:translateX(-4px);}
-  40%,60%{transform:translateX(4px);}
-}
+@keyframes shake{10%,90%{transform:translateX(-1px);}20%,80%{transform:translateX(2px);}30%,50%,70%{transform:translateX(-4px);}40%,60%{transform:translateX(4px);}}
 .hint{font-size:12px;color:#8aa79b;margin-top:5px;}
 
 .radio-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding-top:6px;}
-.radio-pill{
-  flex:1;border:1.6px solid var(--line);border-radius:10px;padding:13px;text-align:center;
-  font-weight:600;color:#5f7d70;transition:all .15s ease;user-select:none;
-  background:#fff;width:100%;display:block;
-}
+.radio-pill{flex:1;border:1.6px solid var(--line);border-radius:10px;padding:13px;text-align:center;font-weight:600;color:#5f7d70;transition:all .15s ease;user-select:none;background:#fff;width:100%;display:block;}
 button.radio-pill{font-family:inherit;appearance:none;-webkit-appearance:none;font-size:14.5px;}
 .radio-pill.checked{background:var(--green-pale);border-color:var(--green-light);color:var(--green-dark);}
 .radio-pill:hover{transform:translateY(-1px);}
@@ -304,29 +166,19 @@ button.radio-pill{font-family:inherit;appearance:none;-webkit-appearance:none;fo
 .checkbox-row input{margin-top:3px;width:18px;height:18px;accent-color:var(--green-light);}
 .checkbox-row label{font-size:13.5px;color:var(--green-dark);line-height:1.5;}
 
-/* buttons */
-.btn{
-  border:none;border-radius:11px;padding:13px 22px;font-weight:700;font-size:14.5px;
-  transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
-}
+.btn{border:none;border-radius:11px;padding:13px 22px;font-weight:700;font-size:14.5px;transition:transform .15s ease, box-shadow .15s ease, background .15s ease;}
 .btn:hover{transform:translateY(-2px) scale(1.015);}
 .btn:active{transform:translateY(0) scale(.99);}
 .btn-primary{background:linear-gradient(120deg,var(--green-light),var(--green-dark));color:#fff;box-shadow:0 10px 24px -10px rgba(10,61,46,.6);}
 .btn-gold{background:linear-gradient(120deg,var(--gold),var(--gold-deep));color:var(--green-dark);box-shadow:0 10px 24px -10px rgba(201,168,0,.6);}
 .btn-ghost{background:#fff;color:var(--green-dark);border:1.6px solid var(--line);}
-.btn-danger{background:#fdeceb;color:var(--danger);border:1.6px solid #f3c9c4;}
 .btn-sm{padding:8px 14px;font-size:13px;border-radius:9px;}
 .btn:disabled{opacity:.5;cursor:not-allowed;transform:none;}
-
 .form-nav{display:flex;justify-content:space-between;margin-top:30px;}
 
-/* ===================== LOGIN ===================== */
-.login-page{
-  max-width:560px;margin:0 auto;padding:24px clamp(16px,4vw,28px);display:flex;align-items:center;justify-content:center;min-height:calc(100vh - 70px);
-}
-.login-wrap{
-  width:100%;margin:0;padding:34px clamp(24px,6vw,48px) 38px;border-radius:24px;background:rgba(255,255,255,.98);border:1px solid rgba(255,255,255,.6);box-shadow:0 26px 70px -28px rgba(4,48,36,.72);display:flex;flex-direction:column;justify-content:center;
-}
+/* LOGIN */
+.login-page{max-width:560px;margin:0 auto;padding:24px clamp(16px,4vw,28px);display:flex;align-items:center;justify-content:center;min-height:calc(100vh - 70px);}
+.login-wrap{width:100%;margin:0;padding:34px clamp(24px,6vw,48px) 38px;border-radius:24px;background:rgba(255,255,255,.98);border:1px solid rgba(255,255,255,.6);box-shadow:0 26px 70px -28px rgba(4,48,36,.72);display:flex;flex-direction:column;justify-content:center;}
 .login-brand-header{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;margin-bottom:22px;}
 .login-welcome{color:var(--green-dark);font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;}
 .login-welcome::after{content:'';display:block;width:34px;height:3px;margin:7px auto 0;border-radius:99px;background:var(--gold);}
@@ -334,78 +186,54 @@ button.radio-pill{font-family:inherit;appearance:none;-webkit-appearance:none;fo
 .register-brand-mark{width:58px;height:58px;border-radius:16px;background:linear-gradient(135deg,#dff5eb,#fef3c7);border:1px solid var(--line);overflow:hidden;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 22px -18px rgba(10,61,46,.6);}
 .register-brand-mark img{width:100%;height:100%;object-fit:cover;display:block;}
 .register-brand-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:800;color:var(--green-dark);font-size:22px;}
-.login-brand-mark{
-  width:78px;height:78px;border-radius:22px;background:linear-gradient(135deg,#dff5eb,#fef3c7);border:1px solid var(--line);overflow:hidden;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 28px -18px rgba(10,61,46,.65);
-}
+.login-brand-mark{width:78px;height:78px;border-radius:22px;background:linear-gradient(135deg,#dff5eb,#fef3c7);border:1px solid var(--line);overflow:hidden;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 28px -18px rgba(10,61,46,.65);}
 .login-brand-mark img{width:100%;height:100%;object-fit:cover;display:block;}
 .login-brand-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:800;color:var(--green-dark);font-size:20px;}
-.login-scripture{
-  overflow:hidden;width:100%;max-width:none;height:32px;margin:0 0 18px;padding:0;
-}
+.login-scripture{overflow:hidden;width:100%;max-width:none;height:32px;margin:0 0 18px;padding:0;}
 .scripture-marquee{overflow:hidden;width:100%;height:100%;}
 .scripture-line{position:relative;top:3px;display:inline-block;padding-left:100%;color:var(--green-dark);font-family:'Sora',sans-serif;font-size:20px;font-weight:700;line-height:32px;white-space:nowrap;animation:scriptureScroll 30s linear infinite;}
-@keyframes scriptureScroll{
-  from{transform:translateX(0);}
-  to{transform:translateX(-100%);}
-}
-@media (prefers-reduced-motion: reduce){
-  .scripture-line{animation:none;transform:none;padding-left:12px;}
-}
-.login-wrap .section-title{font-size:27px;margin-bottom:8px;line-height:1.15;text-align:center;}
+@keyframes scriptureScroll{from{transform:translateX(0);}to{transform:translateX(-100%);}}
+@media (prefers-reduced-motion: reduce){.scripture-line{animation:none;transform:none;padding-left:12px;}}
 .login-wrap .section-sub{margin:0 auto 26px;font-size:14px;text-align:center;max-width:330px;}
 .login-form{width:100%;}
 .login-form .field{margin-bottom:18px;}
 .login-form .field input[type=text],
-.login-form .field input[type=password]{
-  width:100%;background:linear-gradient(180deg,#ffffff,#f9fffb);border:1.6px solid var(--line);border-radius:14px;padding:18px 16px 10px;font-size:16px;color:var(--ink);box-shadow:inset 0 1px 2px rgba(10,61,46,.04);height:58px;
-}
-.login-form .field input[type=text]:focus,
-.login-form .field input[type=password]:focus{
-  border-color:var(--green-light);box-shadow:0 0 0 5px rgba(26,122,90,.12), inset 0 1px 2px rgba(10,61,46,.04);outline:none;
-}
+.login-form .field input[type=password]{width:100%;background:linear-gradient(180deg,#ffffff,#f9fffb);border:1.6px solid var(--line);border-radius:14px;padding:18px 16px 10px;font-size:16px;color:var(--ink);box-shadow:inset 0 1px 2px rgba(10,61,46,.04);height:58px;}
+.login-form .field input:focus{border-color:var(--green-light);box-shadow:0 0 0 5px rgba(26,122,90,.12), inset 0 1px 2px rgba(10,61,46,.04);outline:none;}
 .login-form .field label{top:18px;left:16px;font-size:15px;}
-.login-form .field input[type=text]:focus + label,
-.login-form .field input[type=text]:not(:placeholder-shown) + label,
-.login-form .field input[type=password]:focus + label,
-.login-form .field input[type=password]:not(:placeholder-shown) + label{
-  top:-9px;left:12px;font-size:11.5px;font-weight:700;color:var(--green-light);background:#ffffff;padding:0 5px;
-}
+.login-form .field input:focus + label,
+.login-form .field input:not(:placeholder-shown) + label{top:-9px;left:12px;font-size:11.5px;font-weight:700;color:var(--green-light);background:#ffffff;padding:0 5px;}
 .login-form .btn-primary{width:100%;padding:16px 18px;border-radius:14px;box-shadow:0 18px 26px -20px rgba(10,61,46,.65);font-size:17px;}
 body:has(#view-login:not(.hidden)) .topbar{display:none;}
 
-/* ===================== DASHBOARD ===================== */
-.admin-topbar{
-  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
-  padding:20px 22px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(135deg,#f9fffb,#eef8f2);
-  margin-bottom:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.7);
-}
+/* DASHBOARD */
+.admin-topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:20px 22px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(135deg,#f9fffb,#eef8f2);margin-bottom:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.7);}
 .admin-brand-summary{display:flex;align-items:center;gap:14px;}
-.admin-brand-mark{
-  width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,#dff5eb,#fef3c7);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 10px 24px -18px rgba(10,61,46,.6);
-}
+.admin-brand-mark{width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,#dff5eb,#fef3c7);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 10px 24px -18px rgba(10,61,46,.6);}
 .admin-brand-mark img{width:100%;height:100%;object-fit:cover;display:block;}
 .admin-brand-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:800;color:var(--green-dark);font-size:22px;}
 .admin-head{display:flex;flex-direction:column;gap:4px;}
 .admin-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
 .admin-kpi-row{display:grid;grid-template-columns:repeat(4,minmax(150px,1fr));gap:16px;margin:18px 0 24px;}
-.stat-card{
-  background:linear-gradient(160deg,#fff,#f3faf5);border:1px solid var(--line);border-radius:16px;padding:18px 18px 16px;position:relative;overflow:hidden;min-height:118px;
-}
+.stat-card{background:linear-gradient(160deg,#fff,#f3faf5);border:1px solid var(--line);border-radius:16px;padding:18px 18px 16px;position:relative;overflow:hidden;min-height:118px;}
 .stat-card::before{content:'';position:absolute;inset:0 auto 0 0;width:5px;background:linear-gradient(180deg,var(--green-light),var(--gold));}
 .stat-card .num{font-family:'Sora',sans-serif;font-size:30px;font-weight:800;color:var(--green-dark);display:block;margin-bottom:6px;}
 .stat-card .lbl{font-size:12.5px;color:#5f7d70;font-weight:600;line-height:1.4;}
 @media (max-width:800px){.admin-kpi-row{grid-template-columns:repeat(2,minmax(150px,1fr));}}
 @media (max-width:540px){.admin-kpi-row{grid-template-columns:1fr;}}
 
+.admin-tabs{display:flex;gap:6px;margin-bottom:18px;padding:6px;border-radius:14px;background:#f3faf6;border:1px solid var(--line);flex-wrap:wrap;}
+.admin-tab{border:none;background:transparent;padding:10px 18px;border-radius:10px;font-weight:700;font-size:13.5px;color:#5f7d70;cursor:pointer;transition:all .2s ease;}
+.admin-tab.active{background:linear-gradient(120deg,var(--green-light),var(--green-dark));color:#fff;box-shadow:0 6px 14px -8px rgba(10,61,46,.5);}
+.admin-tab:hover:not(.active){background:var(--green-pale);}
+.status-accepted{background:#eafaf3;color:#11614a;border:1px solid #bfe8d3;}
+.status-pending-choir{background:#fff4d9;color:#7a5a00;border:1px solid #efdb9d;}
+
 .table{width:100%;border-collapse:collapse;font-size:13.5px;}
-thead th{
-  text-align:left;padding:10px 12px;background:var(--green-pale);color:var(--green-dark);
-  font-weight:700;position:sticky;top:0;font-size:12.5px;
-}
+thead th{text-align:left;padding:10px 12px;background:var(--green-pale);color:var(--green-dark);font-weight:700;position:sticky;top:0;font-size:12.5px;}
 tbody td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:middle;}
 tbody tr:hover{background:#f7fbf9;}
 .table-wrap{overflow:auto;max-height:480px;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.7);}
-.avatar-sm{width:34px;height:34px;border-radius:50%;object-fit:cover;background:var(--green-pale);}
 .badge{display:inline-block;padding:3px 10px;border-radius:999px;font-size:11px;font-weight:700;background:var(--green-pale);color:var(--green-dark);}
 .icon-btn{border:none;background:none;padding:6px;border-radius:8px;font-size:15px;}
 .icon-btn:hover{background:var(--green-pale);}
@@ -423,18 +251,11 @@ tbody tr:hover{background:#f7fbf9;}
 .chart-box{background:linear-gradient(180deg,#fff,#f8fbf9);border:1px solid var(--line);border-radius:16px;padding:16px;height:260px;box-shadow:inset 0 1px 0 rgba(255,255,255,.8);}
 
 .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:#f9fbfa;}
-.toolbar input,.toolbar select{
-  border:1.6px solid var(--line);border-radius:10px;padding:10px 12px;font-size:13.5px;background:#fbfdfc;color:var(--ink);
-}
+.toolbar input,.toolbar select{border:1.6px solid var(--line);border-radius:10px;padding:10px 12px;font-size:13.5px;background:#fbfdfc;color:var(--ink);}
 .toolbar input[type=text]{flex:1;min-width:180px;}
-.toolbar .badge{padding:6px 10px;font-size:11px;}
 .spacer{flex:1;}
 
-/* modal */
-.modal-backdrop{
-  position:fixed;inset:0;background:rgba(10,38,32,.55);display:flex;align-items:center;justify-content:center;
-  z-index:200;padding:20px;backdrop-filter:blur(3px);
-}
+.modal-backdrop{position:fixed;inset:0;background:rgba(10,38,32,.55);display:flex;align-items:center;justify-content:center;z-index:200;padding:20px;backdrop-filter:blur(3px);}
 .modal{background:#fff;border-radius:18px;padding:26px;max-width:520px;width:100%;max-height:88vh;overflow:auto;box-shadow:var(--shadow);}
 .modal h3{margin-top:0;color:var(--green-dark);}
 .modal-close-row{display:flex;justify-content:flex-end;gap:10px;margin-top:20px;}
@@ -452,10 +273,10 @@ footer.app-footer{text-align:center;color:#dff3ea;font-size:12px;padding:22px 10
 </head>
 <body>
 
-<!-- ===================== SEMESTER COUNTDOWN ===================== -->
+<!-- SEMESTER COUNTDOWN -->
 <div class="semester-countdown" id="semesterCountdown">
   <div class="countdown-card">
-    <div class="countdown-label"> Semester Inaanza</div>
+    <div class="countdown-label">Semester Inaanza</div>
     <div class="countdown-title">Siku <b id="cd-days">0</b> zimebaki hadi <b>26 Oktoba 2026</b></div>
     <div class="countdown-grid">
       <div class="cd-unit"><span class="cd-num" id="cd-d">0</span><span class="cd-lbl">Siku</span></div>
@@ -470,7 +291,7 @@ footer.app-footer{text-align:center;color:#dff3ea;font-size:12px;padding:22px 10
 <div class="topbar">
   <div class="brand">
     <div class="crest" id="topBrandMark">
-      <img id="topBrandLogo" src="" alt="Logo ya taasisi" class="hidden">
+      <img id="topBrandLogo" src="" alt="Logo" class="hidden">
       <span id="topBrandFallback">TUMH</span>
     </div>
     <div class="brand-text">
@@ -482,18 +303,17 @@ footer.app-footer{text-align:center;color:#dff3ea;font-size:12px;padding:22px 10
     <button data-view="register" class="active">Usajili</button>
     <button data-view="admin" class="nav-admin-hidden">Dashibodi</button>
   </div>
-  <button type="button" class="btn btn-gold btn-sm install-app-btn" id="installAppBtn" aria-label="Install App">⬇ Install App</button>
+  <button type="button" class="btn btn-gold btn-sm install-app-btn" id="installAppBtn">Install App</button>
 </div>
 
 <div class="shell">
 
-  <!-- ===================== VIEW 1: USAJILI ===================== -->
+  <!-- VIEW 1: USAJILI -->
   <div id="view-register">
     <div class="glass-card">
-
       <div class="register-brand-header">
         <div class="register-brand-mark">
-          <img id="registerBrandLogo" src="" alt="Logo ya taasisi" class="hidden">
+          <img id="registerBrandLogo" src="" alt="Logo" class="hidden">
           <div id="registerBrandFallback" class="register-brand-fallback">TUMH</div>
         </div>
         <div>
@@ -506,16 +326,15 @@ footer.app-footer{text-align:center;color:#dff3ea;font-size:12px;padding:22px 10
         <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:20%"></div></div>
         <div class="progress-steps" id="progressSteps">
           <div class="pstep active" data-s="0"><div class="dot">1</div><span class="label">Taarifa Binafsi</span></div>
-          <div class="pstep" data-s="1"><div class="dot">2</div><span class="label">Taarifa za Kitaaluma</span></div>
+          <div class="pstep" data-s="1"><div class="dot">2</div><span class="label">Taaluma</span></div>
           <div class="pstep" data-s="2"><div class="dot">3</div><span class="label">Mawasiliano</span></div>
           <div class="pstep" data-s="3"><div class="dot">4</div><span class="label">Kanisa</span></div>
-          <div class="pstep" data-s="4"><div class="dot">5</div><span class="label">Uthibitisho</span></div>
+          <div class="pstep" data-s="4"><div class="dot">5</div><span class="label">Kukubali</span></div>
         </div>
       </div>
 
       <form id="regForm" novalidate>
-
-        <!-- SEHEMU A -->
+        <!-- A -->
         <section class="step" data-step="0">
           <h2 class="section-title">Sehemu A · Taarifa Binafsi</h2>
           <p class="section-sub">Jaza taarifa zako za msingi ili upate usajili rasmi.</p>
@@ -546,7 +365,7 @@ footer.app-footer{text-align:center;color:#dff3ea;font-size:12px;padding:22px 10
           </div>
         </section>
 
-        <!-- SEHEMU B -->
+        <!-- B -->
         <section class="step hidden" data-step="1">
           <h2 class="section-title">Sehemu B · Taarifa za Kitaaluma</h2>
           <p class="section-sub">Taarifa hizi zitatumika kwenye kitabu cha kumbukumbu za chama.</p>
@@ -576,21 +395,15 @@ footer.app-footer{text-align:center;color:#dff3ea;font-size:12px;padding:22px 10
             </div>
             <div class="field full hidden" id="otherCourseField">
               <input type="text" id="otherCourse" maxlength="80" placeholder=" ">
-              <label for="otherCourse">Andika kozi unayosoma / programu nyingine *</label>
+              <label for="otherCourse">Andika kozi / programu nyingine *</label>
               <div class="err-msg">Tafadhali andika jina la kozi hiyo.</div>
             </div>
             <div class="field">
               <select id="college" required>
                 <option value="" disabled selected hidden></option>
-                <option>COSS</option>
-                <option>SOMG</option>
-                <option>IKS</option>
-                <option>UDBS</option>
-                <option>UDSOL</option>
-                <option>CoICT</option>
-                <option>CoET</option>
-                <option>UDSE</option>
-                <option>Nyingine</option>
+                <option>COSS</option><option>SOMG</option><option>IKS</option>
+                <option>UDBS</option><option>UDSOL</option><option>CoICT</option>
+                <option>CoET</option><option>UDSE</option><option>Nyingine</option>
               </select>
               <label for="college">College *</label>
               <div class="err-msg">Chagua college.</div>
@@ -598,10 +411,8 @@ footer.app-footer{text-align:center;color:#dff3ea;font-size:12px;padding:22px 10
             <div class="field">
               <select id="year" required>
                 <option value="" disabled selected hidden></option>
-                <option>Mwaka wa 1</option>
-                <option>Mwaka wa 2</option>
-                <option>Mwaka wa 3</option>
-                <option>Mwaka wa 4</option>
+                <option>Mwaka wa 1</option><option>Mwaka wa 2</option>
+                <option>Mwaka wa 3</option><option>Mwaka wa 4</option>
               </select>
               <label for="year">Mwaka wa Masomo *</label>
               <div class="err-msg">Chagua mwaka wa masomo.</div>
@@ -609,13 +420,13 @@ footer.app-footer{text-align:center;color:#dff3ea;font-size:12px;padding:22px 10
           </div>
         </section>
 
-        <!-- SEHEMU C -->
+        <!-- C -->
         <section class="step hidden" data-step="2">
           <h2 class="section-title">Sehemu C · Mawasiliano</h2>
           <div class="grid-2">
             <div class="field">
               <input type="tel" id="phone1" placeholder=" " maxlength="10" required>
-              <label for="phone1">Namba ya Simu (Binafsi) *</label>
+              <label for="phone1">Namba ya Simu (WhatsApp) *</label>
               <div class="err-msg" id="phone1Err">Namba iwe tarakimu 10 ianze na 07 au 06.</div>
             </div>
             <div class="field">
@@ -630,7 +441,7 @@ footer.app-footer{text-align:center;color:#dff3ea;font-size:12px;padding:22px 10
           </div>
         </section>
 
-        <!-- SEHEMU D -->
+        <!-- D -->
         <section class="step hidden" data-step="3">
           <h2 class="section-title">Sehemu D · Maelezo ya Kanisa</h2>
           <div class="grid-2">
@@ -641,7 +452,7 @@ footer.app-footer{text-align:center;color:#dff3ea;font-size:12px;padding:22px 10
             </div>
             <div class="field full">
               <input type="text" id="prevService" maxlength="150" placeholder=" ">
-              <label for="prevService">Ushiriki wa Awali (mfano: Pathfinder, muimbaji)</label>
+              <label for="prevService">Ushiriki wa Awali (Pathfinder, muimbaji, n.k.)</label>
             </div>
             <div class="field full">
               <div class="hint" style="margin:0 0 8px;font-weight:700;color:var(--green-dark);">
@@ -650,6 +461,12 @@ footer.app-footer{text-align:center;color:#dff3ea;font-size:12px;padding:22px 10
               <div class="radio-row" data-group="needChurch">
                 <button type="button" class="radio-pill" data-value="Ndio">Ndio</button>
                 <button type="button" class="radio-pill" data-value="Hapana">Hapana</button>
+              </div>
+              <div id="churchHelpNote" class="hidden" style="margin-top:12px;padding:12px;background:#e9f5ef;border-radius:10px;border-left:3px solid var(--green-light);">
+                <div style="font-size:13px;color:#0a3d2e;font-weight:600;margin-bottom:8px;">
+                  Sawa! Tutawasiliana nawe ili kukusaidia kupata kanisa la kuabudia. Andika kanisa unalopendelea (si lazima):
+                </div>
+                <input type="text" id="churchPreference" placeholder="mfano: SDA, Anglican, Pentekoste..." maxlength="100" style="width:100%;padding:10px 12px;border:1.6px solid var(--line);border-radius:8px;font-size:13.5px;background:#fff;">
               </div>
             </div>
             <div class="field full">
@@ -661,14 +478,14 @@ footer.app-footer{text-align:center;color:#dff3ea;font-size:12px;padding:22px 10
                 <button type="button" class="radio-pill" data-value="Hapana">Sio kwa sasa</button>
               </div>
               <div class="hint" style="margin-top:10px;">Ukichagua Ndio, bonyeza hapa kujiunga na group la WhatsApp la Kwaya.</div>
-              <button type="button" class="btn btn-ghost btn-sm" id="btnJoinChoirWhatsapp" style="margin-top:10px;">💬 Jiunge na WhatsApp ya Kwaya</button>
+              <button type="button" class="btn btn-ghost btn-sm" id="btnJoinChoirWhatsapp" style="margin-top:10px;">Jiunge na WhatsApp ya Kwaya</button>
             </div>
           </div>
         </section>
 
-        <!-- SEHEMU E -->
+        <!-- E -->
         <section class="step hidden" data-step="4">
-          <h2 class="section-title">Sehemu E · Uthibitisho</h2>
+          <h2 class="section-title">Sehemu E · Kukubali</h2>
           <p class="section-sub">Thibitisha kanuni kuhitimisha usajili.</p>
           <div class="checkbox-row" style="margin-bottom:10px;">
             <input type="checkbox" id="agree" required>
@@ -678,31 +495,30 @@ footer.app-footer{text-align:center;color:#dff3ea;font-size:12px;padding:22px 10
         </section>
 
         <div class="form-nav">
-          <button type="button" class="btn btn-ghost" id="btnBack" disabled>← Nyuma</button>
-          <button type="button" class="btn btn-primary" id="btnNext">Endelea →</button>
-          <button type="submit" class="btn btn-gold hidden" id="btnSubmit">✓ Kamilisha Usajili</button>
+          <button type="button" class="btn btn-ghost" id="btnBack" disabled>Nyuma</button>
+          <button type="button" class="btn btn-primary" id="btnNext">Endelea</button>
+          <button type="submit" class="btn btn-gold hidden" id="btnSubmit">Kamilisha Usajili</button>
         </div>
       </form>
     </div>
   </div>
 
-  <!-- ===================== VIEW 2: LOGIN ===================== -->
+  <!-- VIEW 2: LOGIN -->
   <div id="view-login" class="hidden">
     <div class="login-page">
-      <div class="glass-card login-wrap" style="position:relative;">
+      <div class="glass-card login-wrap">
         <div class="login-brand-header">
           <div class="login-welcome">Karibu TUCASA</div>
           <div class="login-brand-mark" id="loginBrandMark">
-            <img id="loginBrandLogo" src="" alt="Logo ya chama" class="hidden">
+            <img id="loginBrandLogo" src="" alt="Logo" class="hidden">
             <div id="loginBrandFallback" class="login-brand-fallback">TUMH</div>
           </div>
         </div>
-        <div class="login-scripture" aria-label="Mafungu ya Biblia">
+        <div class="login-scripture">
           <div class="scripture-marquee">
             <div class="scripture-line" id="scriptureLine">Kwa maana Mungu aliupenda ulimwengu hata akamtoa Mwanawe wa pekee. - Yohana 3:16</div>
           </div>
         </div>
-
         <p class="section-sub">Weka username na password yako ili kuendelea.</p>
         <div class="login-form">
           <div class="field full" style="margin-bottom:16px;">
@@ -721,13 +537,13 @@ footer.app-footer{text-align:center;color:#dff3ea;font-size:12px;padding:22px 10
     </div>
   </div>
 
-  <!-- ===================== VIEW 3: ADMIN DASHBOARD ===================== -->
+  <!-- VIEW 3: ADMIN -->
   <div id="view-admin" class="hidden">
     <div class="glass-card">
       <div class="admin-topbar">
         <div class="admin-brand-summary">
           <div class="admin-brand-mark" id="adminBrandMark">
-            <img id="adminBrandLogo" src="" alt="Logo ya chama" class="hidden">
+            <img id="adminBrandLogo" src="" alt="Logo" class="hidden">
             <div id="adminBrandFallback" class="admin-brand-fallback">TUMH</div>
           </div>
           <div class="admin-head">
@@ -736,10 +552,10 @@ footer.app-footer{text-align:center;color:#dff3ea;font-size:12px;padding:22px 10
           </div>
         </div>
         <div class="admin-actions">
-          <label for="adminLogoUpload" class="btn btn-ghost btn-sm" style="margin:0;cursor:pointer;">📷 Weka Logo ya Chama</label>
+          <label for="adminLogoUpload" class="btn btn-ghost btn-sm" style="margin:0;cursor:pointer;">Weka Logo</label>
           <input type="file" id="adminLogoUpload" accept="image/*" style="display:none;">
           <button class="btn btn-ghost btn-sm" id="btnRemoveLogo" type="button">Futa Logo</button>
-          <button class="btn btn-ghost btn-sm" id="btnChangePassword" type="button">🔐 Badilisha Nenosiri</button>
+          <button class="btn btn-ghost btn-sm" id="btnChangePassword" type="button">Badilisha Nenosiri</button>
           <button class="btn btn-ghost btn-sm" id="btnLogout">Toka</button>
         </div>
       </div>
@@ -764,51 +580,85 @@ footer.app-footer{text-align:center;color:#dff3ea;font-size:12px;padding:22px 10
         <div class="stat-card"><div class="num" id="statCourses">0</div><div class="lbl">Kozi</div></div>
       </div>
 
-      <div class="toolbar" style="margin-top:8px;">
-        <button class="btn btn-ghost btn-sm" id="btnClearFilters" type="button">🔄 Safisha Filters</button>
-        <div class="spacer"></div>
-        <button class="btn btn-primary btn-sm" id="btnPrintList" type="button">📄 Pakua PDF</button>
+      <div class="admin-tabs">
+        <button class="admin-tab active" data-tab="all">Wanachama Wote</button>
+        <button class="admin-tab" data-tab="choir">Kwaya</button>
+        <button class="admin-tab" data-tab="church">Msaada wa Kanisa</button>
       </div>
 
-      <div class="charts-row">
-        <div class="chart-box"><canvas id="chartCourse"></canvas></div>
-        <div class="chart-box"><canvas id="chartGender"></canvas></div>
+      <!-- TAB: ALL -->
+      <div id="tab-all" class="admin-tab-content">
+        <div class="toolbar">
+          <button class="btn btn-ghost btn-sm" id="btnClearFilters" type="button">Safisha Filters</button>
+          <div class="spacer"></div>
+          <button class="btn btn-primary btn-sm" id="btnPrintList" type="button">Pakua PDF</button>
+        </div>
+        <div class="charts-row">
+          <div class="chart-box"><canvas id="chartCourse"></canvas></div>
+          <div class="chart-box"><canvas id="chartGender"></canvas></div>
+        </div>
+        <div class="toolbar">
+          <input type="text" id="searchBox" placeholder="Tafuta kwa jina au namba ya mtihani...">
+          <select id="filterCourse"><option value="">Kozi Zote</option></select>
+          <select id="filterGender">
+            <option value="">Jinsia Zote</option>
+            <option value="Me">Me</option>
+            <option value="Ke">Ke</option>
+          </select>
+          <select id="filterTime">
+            <option value="">Muda Wote</option>
+            <option value="asubuhi">Asubuhi</option>
+            <option value="alasiri">Alasiri</option>
+          </select>
+          <div class="spacer"></div>
+          <button class="btn btn-ghost btn-sm" id="btnExportCsv">Pakua CSV</button>
+          <button class="btn btn-ghost btn-sm" id="btnBackupJson">Backup JSON</button>
+          <button class="btn btn-ghost btn-sm" id="btnRestoreJson">Restore</button>
+          <input type="file" id="restoreInput" accept=".json" class="hidden">
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Namba</th><th>Jina</th><th>Kozi</th><th>Simu</th><th>Tarehe</th><th>Vitendo</th></tr>
+            </thead>
+            <tbody id="studentsBody"></tbody>
+          </table>
+        </div>
+        <div class="empty-state hidden" id="emptyState">Hakuna rekodi zinazolingana na utafutaji wako.</div>
+        <h3 class="section-title" style="margin-top:32px;">Audit Trail</h3>
+        <div class="log-list" id="logList"></div>
       </div>
 
-      <div class="toolbar">
-        <input type="text" id="searchBox" placeholder="Tafuta kwa jina au namba ya mtihani...">
-        <select id="filterCourse"><option value="">Kozi Zote</option></select>
-        <select id="filterGender">
-          <option value="">Jinsia Zote</option>
-          <option value="Me">Me</option>
-          <option value="Ke">Ke</option>
-        </select>
-        <select id="filterTime">
-          <option value="">Muda Wote</option>
-          <option value="asubuhi">Asubuhi</option>
-          <option value="alasiri">Alasiri</option>
-        </select>
-        <div class="spacer"></div>
-        <button class="btn btn-ghost btn-sm" id="btnExportCsv" title="Pakua database yote ya chama">⬇ Pakua Database CSV</button>
-        <button class="btn btn-ghost btn-sm" id="btnBackupJson">⬇ Backup JSON</button>
-        <button class="btn btn-ghost btn-sm" id="btnRestoreJson">⬆ Restore</button>
-        <input type="file" id="restoreInput" accept=".json" class="hidden">
+      <!-- TAB: CHOIR -->
+      <div id="tab-choir" class="admin-tab-content hidden">
+        <h3 class="section-title" style="margin-bottom:4px;">Wanachama Walioomba Kujiunga na Kwaya</h3>
+        <p class="section-sub">Orodha ya waliopendekeza kujiunga na Kwaya. Unaweza kuwakubali na kuwatumia WhatsApp.</p>
+        <div class="table-wrap" style="margin-top:14px;">
+          <table>
+            <thead>
+              <tr><th>#</th><th>Jina</th><th>Simu</th><th>Kozi</th><th>Mkoa</th><th>Hali</th><th>Vitendo</th></tr>
+            </thead>
+            <tbody id="choirBody"></tbody>
+          </table>
+        </div>
+        <div class="empty-state hidden" id="choirEmpty">Hakuna mwanachama aliyeomba kujiunga na Kwaya bado.</div>
       </div>
 
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Namba ya Usajili</th><th>Jina</th><th>Kozi</th><th>Simu</th><th>Tarehe</th><th>Vitendo</th>
-            </tr>
-          </thead>
-          <tbody id="studentsBody"></tbody>
-        </table>
+      <!-- TAB: CHURCH -->
+      <div id="tab-church" class="admin-tab-content hidden">
+        <h3 class="section-title" style="margin-bottom:4px;">Wanachama Wanaohitaji Msaada wa Kanisa</h3>
+        <p class="section-sub">Orodha ya waliotaka msaada wa kupata kanisa la kuabudia Mabibo.</p>
+        <div class="table-wrap" style="margin-top:14px;">
+          <table>
+            <thead>
+              <tr><th>#</th><th>Jina</th><th>Simu</th><th>Mkoa</th><th>Kanisa Alilotoka</th><th>Anapendelea</th><th>Hali</th><th>Vitendo</th></tr>
+            </thead>
+            <tbody id="churchBody"></tbody>
+          </table>
+        </div>
+        <div class="empty-state hidden" id="churchEmpty">Hakuna mwanachama anayehitaji msaada wa kanisa bado.</div>
       </div>
-      <div class="empty-state hidden" id="emptyState">Hakuna rekodi zinazolingana na utafutaji wako.</div>
 
-      <h3 class="section-title" style="margin-top:32px;">Audit Trail — Kumbukumbu za Vitendo</h3>
-      <div class="log-list" id="logList"></div>
     </div>
   </div>
 
@@ -816,39 +666,27 @@ footer.app-footer{text-align:center;color:#dff3ea;font-size:12px;padding:22px 10
 
 <footer class="app-footer">TUCASA UDSM MABIBO HOSTEL (TUMH) — Mfumo wa Usajili</footer>
 
-<!-- ===================== MODAL: EDIT STUDENT ===================== -->
+<!-- MODAL: EDIT -->
 <div class="modal-backdrop hidden" id="editModal">
   <div class="modal">
     <h3>Hariri Rekodi</h3>
     <div class="grid-2" id="editFields" style="grid-template-columns:1fr;gap:14px;"></div>
     <div class="modal-close-row">
       <button class="btn btn-ghost btn-sm" id="btnCancelEdit">Ghairi</button>
-      <button class="btn btn-primary btn-sm" id="btnSaveEdit">Hifadhi Mabadiliko</button>
+      <button class="btn btn-primary btn-sm" id="btnSaveEdit">Hifadhi</button>
     </div>
   </div>
 </div>
 
-<!-- ===================== MODAL: CHANGE PASSWORD ===================== -->
+<!-- MODAL: PASSWORD -->
 <div class="modal-backdrop hidden" id="passwordModal">
   <div class="modal" style="max-width:420px;">
     <h3>Badilisha Username na Password</h3>
     <div class="grid-2" style="grid-template-columns:1fr;gap:14px;">
-      <div class="field">
-        <input type="text" id="newUsername" placeholder="" autocomplete="username">
-        <label for="newUsername">Username Mpya</label>
-      </div>
-      <div class="field">
-        <input type="password" id="currentPassword" placeholder=" ">
-        <label for="currentPassword">Nenosiri la Sasa</label>
-      </div>
-      <div class="field">
-        <input type="password" id="newPassword" placeholder=" ">
-        <label for="newPassword">Nenosiri Jipya</label>
-      </div>
-      <div class="field">
-        <input type="password" id="confirmPassword" placeholder=" ">
-        <label for="confirmPassword">Thibitisha Nenosiri Jipya</label>
-      </div>
+      <div class="field"><input type="text" id="newUsername" placeholder=" "><label for="newUsername">Username Mpya</label></div>
+      <div class="field"><input type="password" id="currentPassword" placeholder=" "><label for="currentPassword">Nenosiri la Sasa</label></div>
+      <div class="field"><input type="password" id="newPassword" placeholder=" "><label for="newPassword">Nenosiri Jipya</label></div>
+      <div class="field"><input type="password" id="confirmPassword" placeholder=" "><label for="confirmPassword">Thibitisha Nenosiri Jipya</label></div>
     </div>
     <div class="modal-close-row">
       <button class="btn btn-ghost btn-sm" id="btnCancelPassword">Ghairi</button>
@@ -860,24 +698,22 @@ footer.app-footer{text-align:center;color:#dff3ea;font-size:12px;padding:22px 10
 <script>
 /* ======================================================================
    TUCASA UDSM MABIBO HOSTEL (TUMH)
-   Mfumo wa Usajili — Offline-first (IndexedDB + LocalStorage)
+   Mfumo wa Usajili — Offline-first
    ====================================================================== */
 
-/* ---------- FUNGUO ZA LOCALSTORAGE ---------- */
 const LS_STUDENTS = 'tucasa_students';
-const LS_LOGS     = 'tucasa_logs';
-const LS_COUNTER  = 'tucasa_counter';
-const LS_LOGO     = 'tucasa_chama_logo';
+const LS_LOGS = 'tucasa_logs';
+const LS_COUNTER = 'tucasa_counter';
+const LS_LOGO = 'tucasa_chama_logo';
 const LS_CREDENTIALS = 'tucasa_credentials';
 const LS_STUDENT_INDEX = 'tucasa_student_index';
 const LS_GOOGLE_SHEETS_URL = 'tucasa_google_sheets_url';
 const LS_LOGIN_ATTEMPTS = 'tucasa_login_attempts';
 const SECURITY_KEY = 'TUCASA-SECURE-2026';
-const YEAR_TAG    = '2026';
+const YEAR_TAG = '2026';
 const CHOIR_WHATSAPP_URL = 'https://chat.whatsapp.com/JDFNs6Yak3X419Scl8dPSi?s=sh&p=a&mlu=4';
 const DEFAULT_GOOGLE_SHEETS_URL = '';
 
-/* NENOSIRI ZA DEFAULT — BADILISHA HIVI MARA MOJA BAADA YA KUWEKA */
 const DEFAULT_CREDENTIALS = {
   adminUsername: 'MayungaAdmin',
   admin: 'Tucasa@Mabibo#2026!X',
@@ -893,14 +729,25 @@ const DAILY_VERSES = [
   { ref: 'Mithali 3:5-6', text: 'Mtegemee Bwana kwa moyo wako wote, wala usizitegemee akili zako mwenyewe. Katika njia zako zote mkiri yeye, naye atayanyosha mapito yako.' }
 ];
 
-/* ---------- DB SETUP ---------- */
+/* RATIBA YA IBADA */
+const IBADA_SCHEDULE = [
+  { siku: 'Ijumaa', saa: 'Saa 12 na nusu - 3 usiku (6:30 - 9:00 PM)', shughuli: 'Ibada ya Ufunguzi wa Sabato (Vesper)', mahali: 'Block B Common Room' },
+  { siku: 'Jumamosi (Sabato)', saa: 'Siku nzima', shughuli: 'Ibada ya Sabato / Shule ya Sabato', mahali: 'Ubungo Hill SDA Church' },
+  { siku: 'Jumamosi (jioni)', saa: 'Saa 2 - 3 usiku (8:00 - 9:00 PM)', shughuli: 'Ibada ya Jioni', mahali: 'Block F Common Room' },
+  { siku: 'Jumapili', saa: 'Saa 2 - 3 usiku (8:00 - 9:00 PM)', shughuli: 'Ibada ya Jioni', mahali: 'Block F Common Room' },
+  { siku: 'Jumatatu', saa: 'Saa 2 - 3 usiku (8:00 - 9:00 PM)', shughuli: 'Ibada ya Jioni', mahali: 'Block F Common Room' },
+  { siku: 'Jumanne', saa: 'Saa 2 - 3 usiku (8:00 - 9:00 PM)', shughuli: 'Ibada ya Jioni', mahali: 'Block F Common Room' },
+  { siku: 'Jumatano', saa: 'Saa 2 - 3 usiku (8:00 - 9:00 PM)', shughuli: 'Ibada ya Jioni', mahali: 'Block F Common Room' },
+  { siku: 'Alhamisi', saa: 'Saa 2 - 3 usiku (8:00 - 9:00 PM)', shughuli: 'Ibada ya Jioni', mahali: 'Block F Common Room' }
+];
+
 const DB_NAME = 'tucasa_large_db';
 const DB_VERSION = 1;
 let dbInstance = null;
 let appData = { students: [], logs: [] };
 const LARGE_STORAGE_LIMIT = 900 * 1024;
 
-/* ---------- ENCODE / DECODE ---------- */
+/* ENCODE / DECODE */
 function encodeStoredValue(value){
   const raw = encodeURIComponent(JSON.stringify(value));
   let output = '';
@@ -930,7 +777,7 @@ function writeStoredValue(key, value){
     const payload = JSON.stringify(value);
     if (payload.length > LARGE_STORAGE_LIMIT) return;
     localStorage.setItem(key, encodeStoredValue(value));
-  } catch (error) { console.warn('localStorage quota exceeded for', key); }
+  } catch (error) { console.warn('Storage error', key); }
 }
 function readStoredValue(key, fallbackValue){
   try {
@@ -940,7 +787,7 @@ function readStoredValue(key, fallbackValue){
   } catch { return fallbackValue; }
 }
 
-/* ---------- STUDENT INDEX (kwa duplicate check haraka) ---------- */
+/* STUDENT INDEX */
 function getStudentIndex(){
   try {
     const saved = readStoredValue(LS_STUDENT_INDEX, []);
@@ -973,7 +820,7 @@ function findExistingStudentCandidate({ regNo, phone1, firstName, lastName }){
   }) || null;
 }
 
-/* ---------- INDEXEDDB ---------- */
+/* INDEXEDDB */
 function fallbackStudents(){ try { return readStoredValue(LS_STUDENTS, []); } catch { return []; } }
 function fallbackLogs(){ try { return readStoredValue(LS_LOGS, []); } catch { return []; } }
 function persistToIndexedDB(storeName, rows){
@@ -992,7 +839,7 @@ function readFromIndexedDB(storeName){
     const tx = dbInstance.transaction(storeName, 'readonly');
     const req = tx.objectStore(storeName).getAll();
     req.onsuccess = () => resolve(req.result || []);
-    req.onerror = () => reject(req.error || new Error('IDB read failed'));
+    req.onerror = () => reject(req.error);
   });
 }
 function initLargeDatabase(){
@@ -1012,12 +859,10 @@ function initLargeDatabase(){
         const storedStudents = await readFromIndexedDB('students');
         if(Array.isArray(storedStudents) && storedStudents.length){
           appData.students = storedStudents;
-          writeStoredValue(LS_STUDENTS, storedStudents.slice(0, 200));
         }
         const storedLogs = await readFromIndexedDB('logs');
         if(Array.isArray(storedLogs) && storedLogs.length){
           appData.logs = storedLogs;
-          writeStoredValue(LS_LOGS, storedLogs.slice(0, 120));
         }
       } catch (err) {
         appData.students = fallbackStudents();
@@ -1029,7 +874,7 @@ function initLargeDatabase(){
   });
 }
 
-/* ---------- STUDENTS ---------- */
+/* STUDENTS */
 function getStudents(){ return appData.students; }
 function saveStudents(arr){
   appData.students = arr.map(s => ({
@@ -1040,15 +885,9 @@ function saveStudents(arr){
   }));
   persistToIndexedDB('students', appData.students);
   saveStudentIndex(appData.students);
-  try {
-    localStorage.setItem(LS_STUDENTS, JSON.stringify(
-      appData.students.slice(0, 50).map(({ regId, firstName, lastName, regNo, phone1, course }) => 
-        ({ regId, firstName, lastName, regNo, phone1, course }))
-    ));
-  } catch(e){}
 }
 
-/* ---------- LOGS ---------- */
+/* LOGS */
 function getLogs(){ return appData.logs; }
 function pruneExpiredLogs(){
   const cutoff = Date.now() - (24 * 60 * 60 * 1000);
@@ -1062,7 +901,6 @@ function pruneExpiredLogs(){
 function saveLogs(arr){
   appData.logs = arr;
   persistToIndexedDB('logs', arr);
-  writeStoredValue(LS_LOGS, arr.slice(0, 120));
 }
 function addLog(actor, action){
   const logs = getLogs();
@@ -1070,7 +908,7 @@ function addLog(actor, action){
   saveLogs(logs.slice(0, 120));
 }
 
-/* ---------- CREDENTIALS ---------- */
+/* CREDENTIALS */
 function getCredentials(){
   try {
     const saved = readStoredValue(LS_CREDENTIALS, DEFAULT_CREDENTIALS);
@@ -1079,7 +917,7 @@ function getCredentials(){
 }
 function saveCredentials(creds){ writeStoredValue(LS_CREDENTIALS, creds); }
 
-/* ---------- LOGO ---------- */
+/* LOGO */
 function applyBrandLogo(dataUrl){
   const ids = [
     ['adminBrandLogo','adminBrandFallback'],
@@ -1115,14 +953,14 @@ function removeBrandLogo(){
   applyBrandLogo('');
 }
 
-/* ---------- COUNTER ---------- */
+/* COUNTER */
 function nextRegId(){
   let n = parseInt(readStoredValue(LS_COUNTER, '0'), 10) + 1;
   writeStoredValue(LS_COUNTER, String(n));
   return `TUCASA-${YEAR_TAG}-${String(n).padStart(3,'0')}`;
 }
 
-/* ---------- GOOGLE SHEETS ---------- */
+/* GOOGLE SHEETS */
 function getGoogleSheetsUrl(){
   const saved = readStoredValue(LS_GOOGLE_SHEETS_URL, DEFAULT_GOOGLE_SHEETS_URL);
   return typeof saved === 'string' ? saved.trim() : DEFAULT_GOOGLE_SHEETS_URL;
@@ -1144,7 +982,7 @@ async function syncStudentToGoogleSheets(student){
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ action: 'addStudent', student })
     });
-  } catch(err){ console.warn('Google Sheets sync failed', err); }
+  } catch(err){ console.warn('GS sync failed', err); }
 }
 async function updateStudentInGoogleSheets(student){
   if(!isGoogleSheetsEnabled()) return;
@@ -1154,7 +992,7 @@ async function updateStudentInGoogleSheets(student){
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ action: 'updateStudent', student })
     });
-  } catch(err){ console.warn('Google Sheets update failed', err); }
+  } catch(err){ console.warn('GS update failed', err); }
 }
 async function deleteStudentFromGoogleSheets(regId){
   if(!isGoogleSheetsEnabled()) return;
@@ -1164,10 +1002,10 @@ async function deleteStudentFromGoogleSheets(regId){
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ action: 'deleteStudent', regId })
     });
-  } catch(err){ console.warn('Google Sheets delete failed', err); }
+  } catch(err){ console.warn('GS delete failed', err); }
 }
 
-/* ---------- HELPER ---------- */
+/* HELPERS */
 function val(id){ return document.getElementById(id).value.trim(); }
 function escapeHtml(s){ return (s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 function fmtTime(iso){
@@ -1186,41 +1024,67 @@ function getWhatsAppPhone(phone){
   if(digits.startsWith('255') && digits.length === 12) return digits;
   return '';
 }
+function getIbadaScheduleText(){
+  let txt = 'RATIBA YA IBADA\n';
+  txt += 'TUCASA UDSM MABIBO HOSTEL (TUMH)\n';
+  txt += '---------------------------------\n\n';
+  IBADA_SCHEDULE.forEach(item => {
+    txt += item.siku + '\n';
+    txt += '   Muda: ' + item.saa + '\n';
+    txt += '   Shughuli: ' + item.shughuli + '\n';
+    txt += '   Mahali: ' + item.mahali + '\n\n';
+  });
+  txt += '---------------------------------\n';
+  txt += 'Karibu sana kujiunga nasi!\n';
+  txt += 'TUCASA UDSM MABIBO HOSTEL (TUMH)';
+  return txt;
+}
 function getStudentWhatsAppMessage(student, type){
   if(type === 'registration'){
     const verse = getDailyVerse();
-    return `Karibu sana ${student.firstName}! 🌿\n\nHongera kwa kukamilisha usajili wa TUCASA UDSM MABIBO HOSTEL (TUMH). Tunafurahi kuwa nawe katika familia yetu.\n\nNamba yako ya usajili: ${student.regId}\nKozi: ${student.course}\nCollege: ${student.college}\n\nFungu la leo: ${verse.ref}\n"${verse.text}"\n\nKaribu TUCASA!\nTUCASA UDSM MABIBO HOSTEL (TUMH)`;
+    let msg = '';
+    msg += 'Karibu sana ' + student.firstName + '!\n\n';
+    msg += 'Hongera kwa kukamilisha usajili wa TUCASA UDSM MABIBO HOSTEL (TUMH). Tunafurahi kuwa nawe katika familia yetu.\n\n';
+    msg += 'NAMBA YAKO YA USAJILI: ' + student.regId + '\n';
+    msg += 'Kozi: ' + student.course + '\n';
+    msg += 'College: ' + student.college + '\n';
+    if(student.address) msg += 'Mkoa: ' + student.address + '\n';
+    msg += '\n---------------------------------\n\n';
+    msg += getIbadaScheduleText();
+    msg += '\n\n---------------------------------\n\n';
+    msg += 'Fungu la leo (' + verse.ref + '):\n"' + verse.text + '"\n\n';
+    msg += 'Bwana akubariki sana!\n';
+    msg += 'TUCASA UDSM MABIBO HOSTEL (TUMH)';
+    return msg;
   }
-  return `Habari ${student.firstName},\n\nTUCASA UDSM MABIBO HOSTEL (TUMH) inakutumia ujumbe kuhusu usajili wako.\n\nNamba ya usajili: ${student.regId}`;
+  return 'Habari ' + student.firstName + ',\n\nTUCASA UDSM MABIBO HOSTEL (TUMH) inakutumia ujumbe kuhusu usajili wako.\n\nNamba ya usajili: ' + student.regId;
 }
-function openStudentWhatsApp(student, type = 'general'){
+function openStudentWhatsApp(student, type){
+  type = type || 'general';
   const phone = getWhatsAppPhone(student.phone1);
   if(!phone){
-    Swal.fire({icon:'warning', title:'Namba ya WhatsApp si sahihi', text:`Rekodi ${student.regId} imehifadhiwa, lakini namba ya simu haijaweza kutumika kufungua WhatsApp.`});
+    Swal.fire({icon:'warning', title:'Namba ya WhatsApp si sahihi', text:'Rekodi ' + student.regId + ' imehifadhiwa lakini namba haitumiki kwenye WhatsApp.'});
     return;
   }
-  const url = `https://wa.me/${phone}?text=${encodeURIComponent(getStudentWhatsAppMessage(student, type))}`;
+  const url = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(getStudentWhatsAppMessage(student, type));
   window.open(url, '_blank', 'noopener,noreferrer');
 }
 
-/* =====================================================================
-   SEMESTER COUNTDOWN — 26 Oktoba 2026
-   ===================================================================== */
+/* SEMESTER COUNTDOWN */
 const SEMESTER_START = new Date("2026-10-26T06:00:00").getTime();
 function updateSemesterCountdown(){
   const el = document.getElementById('semesterCountdown');
   if(!el) return;
   const tofauti = SEMESTER_START - Date.now();
   if(tofauti <= 0){
-    el.querySelector('.countdown-card').innerHTML = 
-      '<div class="countdown-done">🎉 Semester imeanza! Mungu akubariki katika masomo yako.</div>';
+    el.querySelector('.countdown-card').innerHTML = '<div class="countdown-done">Semester imeanza! Mungu akubariki katika masomo yako.</div>';
     return;
   }
   const siku = Math.floor(tofauti / 86400000);
-  const saa  = Math.floor((tofauti % 86400000) / 3600000);
-  const dk   = Math.floor((tofauti % 3600000) / 60000);
-  const sk   = Math.floor((tofauti % 60000) / 1000);
-  const set = (id, val) => { const e = document.getElementById(id); if(e) e.textContent = val; };
+  const saa = Math.floor((tofauti % 86400000) / 3600000);
+  const dk = Math.floor((tofauti % 3600000) / 60000);
+  const sk = Math.floor((tofauti % 60000) / 1000);
+  const set = (id, v) => { const e = document.getElementById(id); if(e) e.textContent = v; };
   set('cd-d', siku);
   set('cd-h', String(saa).padStart(2,'0'));
   set('cd-m', String(dk).padStart(2,'0'));
@@ -1230,28 +1094,24 @@ function updateSemesterCountdown(){
 updateSemesterCountdown();
 setInterval(updateSemesterCountdown, 1000);
 
-/* =====================================================================
-   SCRIPTURE MARQUEE
-   ===================================================================== */
+/* SCRIPTURE MARQUEE */
 const scriptureLine = document.getElementById('scriptureLine');
 let scrollingVerseIndex = 0;
 function showScrollingVerse(){
   if(!scriptureLine) return;
   const verse = DAILY_VERSES[scrollingVerseIndex % DAILY_VERSES.length];
-  scriptureLine.textContent = `${verse.text} - ${verse.ref}`;
-  scriptureLine.style.animationDuration = `${Math.max(30, Math.ceil(verse.text.length / 5))}s`;
+  scriptureLine.textContent = verse.text + ' - ' + verse.ref;
+  scriptureLine.style.animationDuration = Math.max(30, Math.ceil(verse.text.length / 5)) + 's';
 }
 if(scriptureLine){
   showScrollingVerse();
-  scriptureLine.addEventListener('animationiteration', ()=>{
+  scriptureLine.addEventListener('animationiteration', () => {
     scrollingVerseIndex = (scrollingVerseIndex + 1) % DAILY_VERSES.length;
     showScrollingVerse();
   });
 }
 
-/* =====================================================================
-   VIEWS
-   ===================================================================== */
+/* VIEWS */
 const views = {
   register: document.getElementById('view-register'),
   login: document.getElementById('view-login'),
@@ -1266,7 +1126,7 @@ function enforceSessionAccess(){
   if(session.lastActivity && (Date.now() - session.lastActivity) > SESSION_TIMEOUT_MS){
     session = { role: null, loginAt: null, lastActivity: null };
     showView('login');
-    Swal.fire({ title:'Session imekwisha', text:'Umefungwa kwa sababu ya ukosefu wa shughuli. Ingiza password tena.', icon:'warning', confirmButtonText:'Sawa', confirmButtonColor:'#1a7a5a' });
+    Swal.fire({title:'Session imekwisha', text:'Umefungwa kwa ukosefu wa shughuli.', icon:'warning', confirmButtonText:'Sawa', confirmButtonColor:'#1a7a5a'});
     return false;
   }
   session.lastActivity = Date.now();
@@ -1276,53 +1136,52 @@ function showView(name){
   if (name === 'register' && !session.role) name = 'login';
   Object.values(views).forEach(v => v.classList.add('hidden'));
   views[name].classList.remove('hidden');
-  document.querySelectorAll('#navTabs button').forEach(b=>{
+  document.querySelectorAll('#navTabs button').forEach(b => {
     const isLoginView = name === 'login';
-    const shouldHighlightRegister = b.dataset.view === 'register' && !isLoginView;
-    const shouldHighlightAdmin = b.dataset.view === 'admin' && name === 'admin';
-    b.classList.toggle('active', shouldHighlightRegister || shouldHighlightAdmin || (isLoginView && b.dataset.view === 'register'));
+    const hReg = b.dataset.view === 'register' && !isLoginView;
+    const hAdm = b.dataset.view === 'admin' && name === 'admin';
+    b.classList.toggle('active', hReg || hAdm || (isLoginView && b.dataset.view === 'register'));
     b.classList.toggle('nav-admin-hidden', isLoginView && b.dataset.view === 'admin');
   });
   if(name === 'admin'){
     if(!enforceSessionAccess()) return;
     if(session.role === 'clerk'){
       showView('register');
-      Swal.fire({ title:'Mfikiaji umefungwa', text:'Clerk anaweza kufungua sehemu ya usajili tu.', icon:'info', confirmButtonText:'Sawa', confirmButtonColor:'#1a7a5a' });
+      Swal.fire({title:'Mfikiaji umefungwa', text:'Clerk anaweza kufungua sehemu ya usajili tu.', icon:'info', confirmButtonText:'Sawa', confirmButtonColor:'#1a7a5a'});
       return;
     }
     renderAdmin();
   }
 }
-document.getElementById('navTabs').addEventListener('click', (e)=>{
+document.getElementById('navTabs').addEventListener('click', (e) => {
   const btn = e.target.closest('button'); if(!btn) return;
   if(btn.dataset.view === 'admin'){
     if(!session.role){
       showView('login');
-      Swal.fire({ title:'Tafadhali ingia kwanza', text:'Sehemu ya dashboard inahitaji login.', icon:'info', confirmButtonText:'Sawa', confirmButtonColor:'#1a7a5a' });
+      Swal.fire({title:'Tafadhali ingia kwanza', text:'Dashboard inahitaji login.', icon:'info', confirmButtonText:'Sawa', confirmButtonColor:'#1a7a5a'});
       return;
     }
     if(session.role === 'clerk'){
       showView('register');
-      Swal.fire({ title:'Mfikiaji umefungwa', text:'Clerk anaweza kufungua sehemu ya usajili tu.', icon:'info', confirmButtonText:'Sawa', confirmButtonColor:'#1a7a5a' });
+      Swal.fire({title:'Mfikiaji umefungwa', text:'Clerk anaweza kufungua sehemu ya usajili tu.', icon:'info', confirmButtonText:'Sawa', confirmButtonColor:'#1a7a5a'});
       return;
     }
     showView('admin');
   } else {
     if(!session.role){
       showView('login');
-      Swal.fire({ title:'Tafadhali ingia kwanza', text:'Fomu ya usajili inapatikana baada ya login.', icon:'info', confirmButtonText:'Sawa', confirmButtonColor:'#1a7a5a' });
+      Swal.fire({title:'Tafadhali ingia kwanza', text:'Fomu inapatikana baada ya login.', icon:'info', confirmButtonText:'Sawa', confirmButtonColor:'#1a7a5a'});
       return;
     }
     showView('register');
   }
 });
 
-/* =====================================================================
-   LOGIN — na rate limiting
-   ===================================================================== */
+/* LOGIN */
 document.getElementById('btnLogin').addEventListener('click', doLogin);
-document.getElementById('loginPass').addEventListener('keydown', e=>{ if(e.key==='Enter') doLogin(); });
-document.getElementById('loginUsername').addEventListener('keydown', e=>{ if(e.key==='Enter') doLogin(); });
+document.getElementById('loginPass').addEventListener('keydown', e => { if(e.key === 'Enter') doLogin(); });
+document.getElementById('loginUsername').addEventListener('keydown', e => { if(e.key === 'Enter') doLogin(); });
+
 let lastActivityUpdate = 0;
 function throttledActivity(){
   const now = Date.now();
@@ -1332,20 +1191,10 @@ document.addEventListener('mousemove', throttledActivity, {passive:true});
 document.addEventListener('keydown', throttledActivity, {passive:true});
 document.addEventListener('click', throttledActivity, {passive:true});
 
-function getLoginAttempts(){
-  try { return parseInt(localStorage.getItem(LS_LOGIN_ATTEMPTS) || '0', 10) || 0; }
-  catch { return 0; }
-}
-function setLoginAttempts(n){
-  try { localStorage.setItem(LS_LOGIN_ATTEMPTS, String(n)); } catch(e){}
-}
-function getLastAttempt(){
-  try { return parseInt(localStorage.getItem(LS_LOGIN_ATTEMPTS + '_time') || '0', 10) || 0; }
-  catch { return 0; }
-}
-function setLastAttempt(t){
-  try { localStorage.setItem(LS_LOGIN_ATTEMPTS + '_time', String(t)); } catch(e){}
-}
+function getLoginAttempts(){ try { return parseInt(localStorage.getItem(LS_LOGIN_ATTEMPTS) || '0', 10) || 0; } catch { return 0; } }
+function setLoginAttempts(n){ try { localStorage.setItem(LS_LOGIN_ATTEMPTS, String(n)); } catch(e){} }
+function getLastAttempt(){ try { return parseInt(localStorage.getItem(LS_LOGIN_ATTEMPTS + '_time') || '0', 10) || 0; } catch { return 0; } }
+function setLastAttempt(t){ try { localStorage.setItem(LS_LOGIN_ATTEMPTS + '_time', String(t)); } catch(e){} }
 
 function doLogin(){
   const username = document.getElementById('loginUsername').value.trim();
@@ -1353,17 +1202,11 @@ function doLogin(){
   const usernameField = document.getElementById('loginUsername').closest('.field');
   const passField = document.getElementById('loginPass').closest('.field');
 
-  // Rate limiting
   const attempts = getLoginAttempts();
   const lastAttempt = getLastAttempt();
   if(attempts >= 5 && (Date.now() - lastAttempt) < 60000){
     const secsLeft = Math.ceil((60000 - (Date.now() - lastAttempt)) / 1000);
-    Swal.fire({
-      icon:'error',
-      title:'Umejaribu mara nyingi',
-      text:`Subiri sekunde ${secsLeft} kabla ya kujaribu tena.`,
-      confirmButtonColor:'#1a7a5a'
-    });
+    Swal.fire({icon:'error', title:'Umejaribu mara nyingi', text:'Subiri sekunde ' + secsLeft + ' kabla ya kujaribu tena.', confirmButtonColor:'#1a7a5a'});
     return;
   }
 
@@ -1375,72 +1218,67 @@ function doLogin(){
   if(!username || !pass || !loginRole){
     usernameField.classList.add('error');
     passField.classList.add('error');
-    setTimeout(()=>usernameField.classList.remove('error'), 400);
-    setTimeout(()=>passField.classList.remove('error'), 400);
+    setTimeout(() => usernameField.classList.remove('error'), 400);
+    setTimeout(() => passField.classList.remove('error'), 400);
     setLoginAttempts(attempts + 1);
     setLastAttempt(Date.now());
     return;
   }
 
-  // Reset attempts on success
   setLoginAttempts(0);
-
   session = { role: loginRole, loginAt: Date.now(), lastActivity: Date.now() };
   document.getElementById('loginUsername').value = '';
   document.getElementById('loginPass').value = '';
 
   if(loginRole === 'clerk'){
-    addLog('Clerk', 'Aliingia kwenye mfumo wa usajili');
+    addLog('Clerk', 'Aliingia kwenye mfumo');
     showView('register');
-    Swal.fire({ title:'Clerk amefungua', text:'Akaunti hii inaweza kutumia fomu ya usajili tu.', icon:'success', confirmButtonText:'Sawa', confirmButtonColor:'#1a7a5a' });
+    Swal.fire({title:'Clerk amefungua', text:'Akaunti hii inaweza kutumia fomu ya usajili tu.', icon:'success', confirmButtonText:'Sawa', confirmButtonColor:'#1a7a5a'});
     return;
   }
-
   addLog('Admin', 'Aliingia kwenye Dashibodi');
   showView('admin');
 }
 
-/* =====================================================================
-   ADMIN ACTIONS
-   ===================================================================== */
-document.getElementById('btnChangePassword').addEventListener('click', ()=>{
+/* ADMIN ACTIONS */
+document.getElementById('btnChangePassword').addEventListener('click', () => {
   document.getElementById('passwordModal').classList.remove('hidden');
   document.getElementById('newUsername').value = getCredentials().adminUsername;
   document.getElementById('currentPassword').value = '';
   document.getElementById('newPassword').value = '';
   document.getElementById('confirmPassword').value = '';
 });
-document.getElementById('btnCancelPassword').addEventListener('click', ()=>{
+document.getElementById('btnCancelPassword').addEventListener('click', () => {
   document.getElementById('passwordModal').classList.add('hidden');
 });
-document.getElementById('btnSavePassword').addEventListener('click', ()=>{
+document.getElementById('btnSavePassword').addEventListener('click', () => {
   const username = document.getElementById('newUsername').value.trim();
   const current = document.getElementById('currentPassword').value.trim();
   const next = document.getElementById('newPassword').value.trim();
   const confirm = document.getElementById('confirmPassword').value.trim();
   const creds = getCredentials();
 
-  if(!username || username.length < 3){ Swal.fire({ icon:'error', title:'Username si sahihi', text:'Username lazima iwe na angalau herufi 3.' }); return; }
-  if(current !== creds.admin){ Swal.fire({ icon:'error', title:'Nenosiri la sasa si sahihi' }); return; }
-  if(!next || next.length < 8){ Swal.fire({ icon:'error', title:'Nenosiri jipya ni fupi', text:'Nenosiri lazima liwe na angalau herufi 8.' }); return; }
-  if(next !== confirm){ Swal.fire({ icon:'error', title:'Nenosiri halijathibitishwa' }); return; }
-  if(username === creds.clerkUsername){ Swal.fire({ icon:'error', title:'Username tayari inatumika' }); return; }
+  if(!username || username.length < 3){ Swal.fire({icon:'error', title:'Username si sahihi', text:'Username lazima iwe angalau herufi 3.'}); return; }
+  if(current !== creds.admin){ Swal.fire({icon:'error', title:'Nenosiri la sasa si sahihi'}); return; }
+  if(!next || next.length < 8){ Swal.fire({icon:'error', title:'Nenosiri jipya ni fupi', text:'Lazima liwe na angalau herufi 8.'}); return; }
+  if(next !== confirm){ Swal.fire({icon:'error', title:'Nenosiri halijathibitishwa'}); return; }
+  if(username === creds.clerkUsername){ Swal.fire({icon:'error', title:'Username tayari inatumika'}); return; }
 
   creds.adminUsername = username;
   creds.admin = next;
   saveCredentials(creds);
   document.getElementById('passwordModal').classList.add('hidden');
-  addLog('Admin', 'Alibadilisha nenosiri la admin');
-  Swal.fire({ icon:'success', title:'Credentials zimebadilishwa', text:'Username na password zimehifadhiwa.' });
+  addLog('Admin', 'Alibadilisha nenosiri');
+  Swal.fire({icon:'success', title:'Credentials zimebadilishwa'});
 });
-document.getElementById('btnLogout').addEventListener('click', ()=>{
-  addLog(session.role === 'admin' ? 'Admin' : 'Clerk', 'Alitoka kwenye Dashibodi');
+document.getElementById('btnLogout').addEventListener('click', () => {
+  addLog(session.role === 'admin' ? 'Admin' : 'Clerk', 'Alitoka');
   session = { role: null, loginAt: null, lastActivity: null };
   document.getElementById('loginUsername').value = '';
   document.getElementById('loginPass').value = '';
   showView('login');
 });
-document.getElementById('adminLogoUpload')?.addEventListener('change', (event)=>{
+document.getElementById('adminLogoUpload')?.addEventListener('change', (event) => {
   const file = event.target.files && event.target.files[0];
   if (!file) return;
   const reader = new FileReader();
@@ -1448,27 +1286,27 @@ document.getElementById('adminLogoUpload')?.addEventListener('change', (event)=>
     const dataUrl = e.target && e.target.result;
     if (typeof dataUrl === 'string') {
       applyBrandLogo(dataUrl);
-      Swal.fire({ icon: 'success', title: 'Logo imewekwa', text: 'Logo ya chama imehifadhiwa.' });
+      Swal.fire({icon: 'success', title: 'Logo imewekwa'});
     }
   };
   reader.readAsDataURL(file);
   event.target.value = '';
 });
-document.getElementById('btnRemoveLogo')?.addEventListener('click', ()=>{
+document.getElementById('btnRemoveLogo')?.addEventListener('click', () => {
   removeBrandLogo();
-  Swal.fire({ icon: 'info', title: 'Logo imeondolewa', text: 'Mfumo umerudi kwenye logo ya default.' });
+  Swal.fire({icon: 'info', title: 'Logo imeondolewa'});
 });
-document.getElementById('btnSaveGoogleSheetsUrl')?.addEventListener('click', ()=>{
+document.getElementById('btnSaveGoogleSheetsUrl')?.addEventListener('click', () => {
   const urlInput = document.getElementById('googleSheetsUrlInput');
   if (!urlInput) return;
   const url = setGoogleSheetsUrl(urlInput.value);
   if (isGoogleSheetsEnabled()) {
-    Swal.fire({ icon: 'success', title: 'Link imehifadhiwa', timer: 1800, showConfirmButton: false });
+    Swal.fire({icon: 'success', title: 'Link imehifadhiwa', timer: 1800, showConfirmButton: false});
   } else {
-    Swal.fire({ icon: 'warning', title: 'Link haijakamilika', text: 'Weka URL ya script.google.com/…/exec.', confirmButtonColor: '#1a7a5a' });
+    Swal.fire({icon: 'warning', title: 'Link haijakamilika', text: 'Weka URL ya script.google.com/.../exec.', confirmButtonColor: '#1a7a5a'});
   }
 });
-document.getElementById('btnClearFilters').addEventListener('click', ()=>{
+document.getElementById('btnClearFilters').addEventListener('click', () => {
   document.getElementById('searchBox').value = '';
   document.getElementById('filterCourse').value = '';
   document.getElementById('filterGender').value = '';
@@ -1476,15 +1314,13 @@ document.getElementById('btnClearFilters').addEventListener('click', ()=>{
   renderTable();
 });
 
-/* =====================================================================
-   WIZARD YA USAJILI
-   ===================================================================== */
+/* WIZARD */
 const steps = Array.from(document.querySelectorAll('.step'));
 let currentStep = 0;
 function renderStep(){
   steps.forEach(s => s.classList.toggle('hidden', Number(s.dataset.step) !== currentStep));
-  document.getElementById('progressFill').style.width = `${((currentStep+1)/steps.length)*100}%`;
-  document.querySelectorAll('.pstep').forEach(p=>{
+  document.getElementById('progressFill').style.width = ((currentStep+1)/steps.length*100) + '%';
+  document.querySelectorAll('.pstep').forEach(p => {
     const s = Number(p.dataset.s);
     p.classList.toggle('active', s === currentStep);
     p.classList.toggle('done', s < currentStep);
@@ -1495,34 +1331,40 @@ function renderStep(){
 }
 
 const selections = { gender: '', needChurch: '', choir: '' };
-document.querySelectorAll('.radio-row').forEach(row=>{
+document.querySelectorAll('.radio-row').forEach(row => {
   const groupName = row.dataset.group;
-  row.querySelectorAll('.radio-pill').forEach(pill=>{
-    pill.addEventListener('click', ()=>{
+  row.querySelectorAll('.radio-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
       selections[groupName] = pill.dataset.value;
       row.querySelectorAll('.radio-pill').forEach(p => p.classList.remove('checked'));
       pill.classList.add('checked');
       if(groupName === 'gender'){
         document.getElementById('genderErr').style.display = 'none';
       }
+      if(groupName === 'needChurch'){
+        const note = document.getElementById('churchHelpNote');
+        if(note){
+          if(pill.dataset.value === 'Ndio') note.classList.remove('hidden');
+          else note.classList.add('hidden');
+        }
+      }
     });
   });
 });
 
-document.getElementById('btnJoinChoirWhatsapp')?.addEventListener('click', ()=>{
-  if (!selections.choir) { Swal.fire({ icon:'info', title:'Chagua kwanza', text:'Chagua kama unataka kujiunga na Kwaya.' }); return; }
-  if (selections.choir === 'Hapana') { Swal.fire({ icon:'info', title:'Umechagua Sio kwa sasa' }); return; }
+document.getElementById('btnJoinChoirWhatsapp')?.addEventListener('click', () => {
+  if (!selections.choir) { Swal.fire({icon:'info', title:'Chagua kwanza', text:'Chagua kama unataka kujiunga na Kwaya.'}); return; }
+  if (selections.choir === 'Hapana') { Swal.fire({icon:'info', title:'Umechagua Sio kwa sasa'}); return; }
   window.open(CHOIR_WHATSAPP_URL, '_blank', 'noopener,noreferrer');
 });
 
-document.querySelectorAll('.field select').forEach(sel=>{
-  sel.addEventListener('change', ()=> {
+document.querySelectorAll('.field select').forEach(sel => {
+  sel.addEventListener('change', () => {
     sel.classList.toggle('filled', !!sel.value);
     const otherField = document.getElementById('otherCourseField');
-    if(sel.id === 'course') {
-      if(sel.value === 'Nyingine'){
-        otherField.classList.remove('hidden');
-      } else {
+    if(sel.id === 'course'){
+      if(sel.value === 'Nyingine') otherField.classList.remove('hidden');
+      else {
         otherField.classList.add('hidden');
         document.getElementById('otherCourse').value = '';
         otherField.classList.remove('error');
@@ -1539,13 +1381,11 @@ function validateStep(stepIdx){
     const fn = document.getElementById('firstName');
     const ln = document.getElementById('lastName');
     const dob = document.getElementById('dob');
-    markError(fn.closest('.field'), !fn.value.trim()); if(!fn.value.trim()) ok=false;
-    markError(ln.closest('.field'), !ln.value.trim()); if(!ln.value.trim()) ok=false;
+    markError(fn.closest('.field'), !fn.value.trim()); if(!fn.value.trim()) ok = false;
+    markError(ln.closest('.field'), !ln.value.trim()); if(!ln.value.trim()) ok = false;
     const genderChosen = !!selections.gender;
     document.getElementById('genderErr').style.display = genderChosen ? 'none' : 'block';
-    if(!genderChosen) ok=false;
-
-    // Validate age
+    if(!genderChosen) ok = false;
     const dobValue = dob.value;
     if(!dobValue){
       markError(dob.closest('.field'), true); ok = false;
@@ -1555,11 +1395,9 @@ function validateStep(stepIdx){
       const age = (today - dobDate) / (1000 * 60 * 60 * 24 * 365.25);
       if(dobDate > today || age < 15 || age > 80){
         markError(dob.closest('.field'), true);
-        document.getElementById('dobErr').textContent = age < 15 ? 'Umri wako ni mdogo sana (lazima 15+).' : age > 80 ? 'Tarehe si sahihi.' : 'Tarehe si sahihi.';
+        document.getElementById('dobErr').textContent = age < 15 ? 'Umri ni mdogo sana (lazima 15+).' : 'Tarehe si sahihi.';
         ok = false;
-      } else {
-        markError(dob.closest('.field'), false);
-      }
+      } else markError(dob.closest('.field'), false);
     }
   }
   if(stepIdx === 1){
@@ -1568,13 +1406,13 @@ function validateStep(stepIdx){
     const otherCourse = document.getElementById('otherCourse');
     const college = document.getElementById('college');
     const year = document.getElementById('year');
-    const dup = getStudents().some(s => (s.regNo||'').toLowerCase() === regNo.value.trim().toLowerCase());
+    const dup = getStudents().some(s => (s.regNo || '').toLowerCase() === regNo.value.trim().toLowerCase());
     const regNoField = regNo.closest('.field');
     if(!regNo.value.trim() || dup){
       markError(regNoField, true);
-      document.getElementById('regNoErr').textContent = dup ? 'Namba hii tayari imesajiliwa.' : 'Tafadhali jaza namba ya mtihani.';
+      document.getElementById('regNoErr').textContent = dup ? 'Namba hii tayari imesajiliwa.' : 'Jaza namba ya mtihani.';
       ok = false;
-    } else { markError(regNoField, false); }
+    } else markError(regNoField, false);
     if(course.value === 'Nyingine'){
       const otherCourseField = document.getElementById('otherCourseField');
       const otherValid = otherCourse.value.trim().length > 0;
@@ -1582,27 +1420,26 @@ function validateStep(stepIdx){
       if(!otherValid) ok = false;
     } else {
       document.getElementById('otherCourseField').classList.add('hidden');
-      document.getElementById('otherCourseField').classList.remove('error');
       otherCourse.value = '';
     }
-    markError(course.closest('.field'), !course.value); if(!course.value) ok=false;
-    markError(college.closest('.field'), !college.value); if(!college.value) ok=false;
-    markError(year.closest('.field'), !year.value); if(!year.value) ok=false;
+    markError(course.closest('.field'), !course.value); if(!course.value) ok = false;
+    markError(college.closest('.field'), !college.value); if(!college.value) ok = false;
+    markError(year.closest('.field'), !year.value); if(!year.value) ok = false;
   }
   if(stepIdx === 2){
     const p1 = document.getElementById('phone1');
     const p2 = document.getElementById('phone2');
     const phoneRe = /^(07|06)\d{8}$/;
     const p1ok = phoneRe.test(p1.value.trim());
-    markError(p1.closest('.field'), !p1ok); if(!p1ok) ok=false;
+    markError(p1.closest('.field'), !p1ok); if(!p1ok) ok = false;
     if(p2.value.trim()){
       const p2ok = phoneRe.test(p2.value.trim());
-      markError(p2.closest('.field'), !p2ok); if(!p2ok) ok=false;
-    } else { markError(p2.closest('.field'), false); }
+      markError(p2.closest('.field'), !p2ok); if(!p2ok) ok = false;
+    } else markError(p2.closest('.field'), false);
   }
   if(stepIdx === 3){
     const church = document.getElementById('church');
-    markError(church.closest('.field'), !church.value.trim()); if(!church.value.trim()) ok=false;
+    markError(church.closest('.field'), !church.value.trim()); if(!church.value.trim()) ok = false;
   }
   if(stepIdx === 4){
     const agree = document.getElementById('agree');
@@ -1610,27 +1447,25 @@ function validateStep(stepIdx){
     document.getElementById('agreeErr').style.display = ok2 ? 'none' : 'block';
     if(!ok2){
       document.querySelector('.checkbox-row').style.animation = 'shake .35s ease';
-      setTimeout(()=> document.querySelector('.checkbox-row').style.animation='', 400);
+      setTimeout(() => document.querySelector('.checkbox-row').style.animation = '', 400);
     }
-    if(!ok2) ok=false;
+    if(!ok2) ok = false;
   }
   return ok;
 }
 
-document.getElementById('btnNext').addEventListener('click', ()=>{
+document.getElementById('btnNext').addEventListener('click', () => {
   if(!validateStep(currentStep)) return;
-  currentStep = Math.min(currentStep+1, steps.length-1);
+  currentStep = Math.min(currentStep + 1, steps.length - 1);
   renderStep();
 });
-document.getElementById('btnBack').addEventListener('click', ()=>{
-  currentStep = Math.max(currentStep-1, 0);
+document.getElementById('btnBack').addEventListener('click', () => {
+  currentStep = Math.max(currentStep - 1, 0);
   renderStep();
 });
 
-/* =====================================================================
-   SUBMIT — Auto-verified
-   ===================================================================== */
-document.getElementById('regForm').addEventListener('submit', async (e)=>{
+/* SUBMIT */
+document.getElementById('regForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   if(!validateStep(4)) return;
 
@@ -1649,8 +1484,8 @@ document.getElementById('regForm').addEventListener('submit', async (e)=>{
   if (duplicate) {
     Swal.fire({
       icon: 'info',
-      title: 'Taarifa tayari ipo kwenye mfumo',
-      text: `Mwanachama ${candidate.firstName} ${candidate.lastName} / ${candidate.regNo} tayari amesajiliwa.`,
+      title: 'Taarifa tayari ipo',
+      text: 'Mwanachama ' + candidate.firstName + ' ' + candidate.lastName + ' / ' + candidate.regNo + ' tayari amesajiliwa.',
       confirmButtonText: 'Sawa',
       confirmButtonColor: '#1a7a5a'
     });
@@ -1665,8 +1500,11 @@ document.getElementById('regForm').addEventListener('submit', async (e)=>{
     regNo: val('regNo'), course: courseValue, college: val('college'), year: val('year'),
     phone1: val('phone1'), phone2: val('phone2'), address: val('address'),
     church: val('church'), prevService: val('prevService'),
+    churchPreference: (document.getElementById('churchPreference')?.value || '').trim(),
     needChurch: selections.needChurch,
     choir: selections.choir,
+    choirStatus: selections.choir === 'Ndio' ? 'pending' : null,
+    churchHelpStatus: selections.needChurch === 'Ndio' ? 'pending' : null,
     createdAt: new Date().toISOString(),
     status: 'verified',
     verifiedBy: 'system',
@@ -1676,39 +1514,69 @@ document.getElementById('regForm').addEventListener('submit', async (e)=>{
   const students = getStudents();
   students.push(student);
   saveStudents(students);
-  if(isGoogleSheetsEnabled()){
-    await syncStudentToGoogleSheets(student);
-  }
-  addLog(session.role ? (session.role==='admin'?'Admin':'Clerk') : 'Msajili', `Alimsajili ${student.firstName} ${student.lastName} (${student.regId})`);
+  if(isGoogleSheetsEnabled()) await syncStudentToGoogleSheets(student);
+  addLog(session.role ? (session.role === 'admin' ? 'Admin' : 'Clerk') : 'Msajili', 'Alimsajili ' + student.firstName + ' ' + student.lastName + ' (' + student.regId + ')');
 
-  openStudentWhatsApp(student, 'registration');
+  showSuccessPopup(student);
   resetForm();
 });
 
+function showSuccessPopup(student){
+  let scheduleHtml = '<div style="text-align:left;font-size:12px;max-height:180px;overflow-y:auto;background:#f3faf6;padding:12px;border-radius:10px;margin:12px 0;border-left:3px solid #1a7a5a;">';
+  scheduleHtml += '<div style="font-weight:800;color:#0a3d2e;margin-bottom:8px;font-size:13px;">RATIBA YA IBADA YA TUCASA</div>';
+  IBADA_SCHEDULE.forEach(item => {
+    scheduleHtml += '<div style="padding:8px 0;border-bottom:1px dashed #d8e6df;">';
+    scheduleHtml += '<div style="font-weight:700;color:#0a3d2e;font-size:12.5px;">' + item.siku + '</div>';
+    scheduleHtml += '<div style="color:#5f7d70;font-size:11px;margin-top:2px;">Muda: ' + item.saa + '</div>';
+    scheduleHtml += '<div style="color:#5f7d70;font-size:11px;">Shughuli: ' + item.shughuli + '</div>';
+    scheduleHtml += '<div style="color:#1a7a5a;font-size:11px;font-weight:600;">Mahali: ' + item.mahali + '</div>';
+    scheduleHtml += '</div>';
+  });
+  scheduleHtml += '</div>';
+
+  Swal.fire({
+    icon: 'success',
+    title: 'Hongera, ' + student.firstName + '!',
+    html: '<p style="font-size:14px;line-height:1.6;color:#0e2620;margin-bottom:8px;">Usajili wako umekamilika.</p>' +
+      '<div style="background:#e9f5ef;padding:10px;border-radius:10px;margin-bottom:12px;">' +
+      '<div style="font-size:10px;color:#5f7d70;font-weight:700;letter-spacing:0.5px;">NAMBA YA USAJILI</div>' +
+      '<div style="font-size:18px;font-weight:800;color:#0a3d2e;margin-top:4px;">' + student.regId + '</div></div>' +
+      scheduleHtml +
+      '<p style="font-size:12px;color:#5f7d70;margin-top:10px;">Tuma ratiba hii kwenye WhatsApp yako?</p>',
+    showCancelButton: true,
+    confirmButtonText: 'Tuma WhatsApp',
+    cancelButtonText: 'Funga',
+    confirmButtonColor: '#1a7a5a',
+    cancelButtonColor: '#5f7d70',
+    width: '520px'
+  }).then((result) => {
+    if (result.isConfirmed) openStudentWhatsApp(student, 'registration');
+  });
+}
+
 function resetForm(){
   document.getElementById('regForm').reset();
-  document.querySelectorAll('.radio-pill').forEach(p=>p.classList.remove('checked'));
+  document.querySelectorAll('.radio-pill').forEach(p => p.classList.remove('checked'));
   selections.gender = '';
   selections.needChurch = '';
   selections.choir = '';
-  document.querySelectorAll('.field select').forEach(s=>s.classList.remove('filled'));
+  document.querySelectorAll('.field select').forEach(s => s.classList.remove('filled'));
   document.getElementById('otherCourseField').classList.add('hidden');
   document.getElementById('otherCourse').value = '';
+  document.getElementById('churchHelpNote')?.classList.add('hidden');
   currentStep = 0;
-  document.querySelectorAll('.field.error').forEach(f=>f.classList.remove('error'));
+  document.querySelectorAll('.field.error').forEach(f => f.classList.remove('error'));
   renderStep();
 }
 
-/* =====================================================================
-   ADMIN DASHBOARD
-   ===================================================================== */
-let charts = { course:null, gender:null };
+/* ADMIN DASHBOARD */
+let charts = { course: null, gender: null };
 
 function populateCourseFilter(){
   const sel = document.getElementById('filterCourse');
   const current = sel.value;
-  const courses = [...new Set(getStudents().map(s=>s.course))].sort();
-  sel.innerHTML = '<option value="">Kozi Zote</option>' + courses.map(c=>`<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join('');
+  const courses = [...new Set(getStudents().map(s => s.course))].sort();
+  sel.innerHTML = '<option value="">Kozi Zote</option>' + courses.map(c => '<option value="' + escapeHtml(c) + '">' + escapeHtml(c) + '</option>').join('');
   sel.value = current;
 }
 
@@ -1717,8 +1585,8 @@ function filteredStudents(){
   const fc = document.getElementById('filterCourse').value;
   const fg = document.getElementById('filterGender').value;
   const ft = document.getElementById('filterTime').value;
-  return getStudents().filter(s=>{
-    if(q && !(`${s.firstName} ${s.lastName}`.toLowerCase().includes(q) || (s.regNo||'').toLowerCase().includes(q))) return false;
+  return getStudents().filter(s => {
+    if(q && !((s.firstName + ' ' + s.lastName).toLowerCase().includes(q) || (s.regNo || '').toLowerCase().includes(q))) return false;
     if(fc && s.course !== fc) return false;
     if(fg && s.gender !== fg) return false;
     if(ft){
@@ -1728,7 +1596,7 @@ function filteredStudents(){
       if(ft === 'alasiri' && isMorning) return false;
     }
     return true;
-  }).sort((a,b)=> new Date(b.createdAt) - new Date(a.createdAt));
+  }).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 }
 
 function renderAdmin(){
@@ -1739,14 +1607,16 @@ function renderAdmin(){
   renderStats();
   renderCharts();
   renderTable();
+  renderChoirTable();
+  renderChurchTable();
   renderLogs();
 }
 
 function renderStats(){
   const all = getStudents();
-  const male = all.filter(s=>s.gender==='Me').length;
-  const female = all.filter(s=>s.gender==='Ke').length;
-  const courses = new Set(all.map(s=>s.course)).size;
+  const male = all.filter(s => s.gender === 'Me').length;
+  const female = all.filter(s => s.gender === 'Ke').length;
+  const courses = new Set(all.map(s => s.course)).size;
   document.getElementById('statTotal').textContent = all.length;
   document.getElementById('statMale').textContent = male;
   document.getElementById('statFemale').textContent = female;
@@ -1756,21 +1626,21 @@ function renderStats(){
 function renderCharts(){
   const all = getStudents();
   const courseCounts = {};
-  all.forEach(s=> courseCounts[s.course] = (courseCounts[s.course]||0)+1);
-  const genderCounts = { Me: all.filter(s=>s.gender==='Me').length, Ke: all.filter(s=>s.gender==='Ke').length };
+  all.forEach(s => courseCounts[s.course] = (courseCounts[s.course] || 0) + 1);
+  const genderCounts = { Me: all.filter(s => s.gender === 'Me').length, Ke: all.filter(s => s.gender === 'Ke').length };
 
   if(charts.course) charts.course.destroy();
   if(charts.gender) charts.gender.destroy();
 
   charts.course = new Chart(document.getElementById('chartCourse'), {
-    type:'bar',
-    data:{ labels:Object.keys(courseCounts), datasets:[{ label:'Wanachama', data:Object.values(courseCounts), backgroundColor:'#1a7a5a', borderRadius:6 }]},
-    options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false}, title:{display:true, text:'Mgawanyo kwa Kozi'} }, scales:{ y:{ beginAtZero:true, ticks:{ precision:0 } } } }
+    type: 'bar',
+    data: { labels: Object.keys(courseCounts), datasets: [{ label: 'Wanachama', data: Object.values(courseCounts), backgroundColor: '#1a7a5a', borderRadius: 6 }] },
+    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, title: { display: true, text: 'Mgawanyo kwa Kozi' } }, scales: { y: { beginAtZero: true, ticks: { precision: 0 } } } }
   });
   charts.gender = new Chart(document.getElementById('chartGender'), {
-    type:'pie',
-    data:{ labels:['Wanaume','Wanawake'], datasets:[{ data:[genderCounts.Me, genderCounts.Ke], backgroundColor:['#0a3d2e','#FFD700'] }]},
-    options:{ responsive:true, maintainAspectRatio:false, plugins:{ title:{display:true, text:'Mgawanyo kwa Jinsia'} } }
+    type: 'pie',
+    data: { labels: ['Wanaume', 'Wanawake'], datasets: [{ data: [genderCounts.Me, genderCounts.Ke], backgroundColor: ['#0a3d2e', '#FFD700'] }] },
+    options: { responsive: true, maintainAspectRatio: false, plugins: { title: { display: true, text: 'Mgawanyo kwa Jinsia' } } }
   });
 }
 
@@ -1778,7 +1648,7 @@ function renderTable(){
   const list = filteredStudents();
   const body = document.getElementById('studentsBody');
   const isAdmin = session.role === 'admin';
-  document.getElementById('emptyState').classList.toggle('hidden', list.length>0);
+  document.getElementById('emptyState').classList.toggle('hidden', list.length > 0);
 
   body.innerHTML = list.map(s => `
     <tr data-id="${s.regId}">
@@ -1789,24 +1659,24 @@ function renderTable(){
       <td>${new Date(s.createdAt).toLocaleDateString('sw-TZ')}</td>
       <td>
         <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-          <span class="status-pill status-verified" style="display:inline-flex;align-items:center;padding:4px 10px;border-radius:999px;font-size:11px;font-weight:700;background:#eafaf3;color:#11614a;border:1px solid #bfe8d3;">✓ Amesajiliwa</span>
-          <button class="icon-btn" title="Tuma ujumbe WhatsApp" data-act="whatsapp" data-id="${s.regId}">💬</button>
-          <button class="icon-btn" title="Pakua PDF ya mwanachama" data-act="pdf" data-id="${s.regId}">📄</button>
-          ${isAdmin ? `<button class="icon-btn" title="Hariri" data-act="edit" data-id="${s.regId}">✏️</button>
-          <button class="icon-btn danger" title="Futa" data-act="del" data-id="${s.regId}">🗑️</button>` : ''}
+          <span style="display:inline-flex;align-items:center;padding:4px 10px;border-radius:999px;font-size:11px;font-weight:700;background:#eafaf3;color:#11614a;border:1px solid #bfe8d3;">Amesajiliwa</span>
+          <button class="icon-btn" title="WhatsApp" data-act="whatsapp" data-id="${s.regId}">WA</button>
+          <button class="icon-btn" title="PDF" data-act="pdf" data-id="${s.regId}">PDF</button>
+          ${isAdmin ? `<button class="icon-btn" title="Hariri" data-act="edit" data-id="${s.regId}">E</button>
+          <button class="icon-btn danger" title="Futa" data-act="del" data-id="${s.regId}">X</button>` : ''}
         </div>
       </td>
     </tr>
   `).join('');
 }
 
-['searchBox'].forEach(id=> document.getElementById(id).addEventListener('input', renderTable));
-['filterCourse','filterGender','filterTime'].forEach(id=> document.getElementById(id).addEventListener('change', renderTable));
+['searchBox'].forEach(id => document.getElementById(id).addEventListener('input', renderTable));
+['filterCourse', 'filterGender', 'filterTime'].forEach(id => document.getElementById(id).addEventListener('change', renderTable));
 
-document.getElementById('studentsBody').addEventListener('click', (e)=>{
+document.getElementById('studentsBody').addEventListener('click', (e) => {
   const btn = e.target.closest('button'); if(!btn) return;
   const id = btn.dataset.id;
-  const student = getStudents().find(s=>s.regId===id);
+  const student = getStudents().find(s => s.regId === id);
   if(!student) return;
   if(btn.dataset.act === 'whatsapp') openStudentWhatsApp(student);
   if(btn.dataset.act === 'pdf') printStudentProfile(student);
@@ -1816,17 +1686,17 @@ document.getElementById('studentsBody').addEventListener('click', (e)=>{
 
 function deleteStudent(student){
   Swal.fire({
-    icon:'warning', title:'Futa Rekodi?',
-    text:`Una uhakika unataka kufuta rekodi ya ${student.firstName} ${student.lastName} (${student.regId})?`,
-    showCancelButton:true, confirmButtonText:'Ndiyo, Futa', cancelButtonText:'Ghairi', confirmButtonColor:'#c0392b'
-  }).then(async (res)=>{
+    icon: 'warning', title: 'Futa Rekodi?',
+    text: 'Una uhakika unataka kufuta rekodi ya ' + student.firstName + ' ' + student.lastName + ' (' + student.regId + ')?',
+    showCancelButton: true, confirmButtonText: 'Ndiyo, Futa', cancelButtonText: 'Ghairi', confirmButtonColor: '#c0392b'
+  }).then(async (res) => {
     if(!res.isConfirmed) return;
-    const remaining = getStudents().filter(s=>s.regId !== student.regId);
+    const remaining = getStudents().filter(s => s.regId !== student.regId);
     saveStudents(remaining);
     if(isGoogleSheetsEnabled()) await deleteStudentFromGoogleSheets(student.regId);
-    addLog('Admin', `Alifuta rekodi ya ${student.firstName} ${student.lastName} (${student.regId})`);
+    addLog('Admin', 'Alifuta rekodi ya ' + student.firstName + ' ' + student.lastName);
     renderAdmin();
-    Swal.fire({ icon:'success', title:'Imefutwa', timer:1300, showConfirmButton:false });
+    Swal.fire({icon: 'success', title: 'Imefutwa', timer: 1300, showConfirmButton: false});
   });
 }
 
@@ -1840,60 +1710,186 @@ const EDIT_FIELDS = [
 ];
 function openEditModal(student){
   editingId = student.regId;
-  document.getElementById('editFields').innerHTML = EDIT_FIELDS.map(([key,label])=>`
+  document.getElementById('editFields').innerHTML = EDIT_FIELDS.map(([key, label]) => `
     <div class="field">
-      <input type="text" id="edit_${key}" value="${escapeHtml(student[key]||'')}" placeholder=" ">
+      <input type="text" id="edit_${key}" value="${escapeHtml(student[key] || '')}" placeholder=" ">
       <label for="edit_${key}">${label}</label>
     </div>
   `).join('');
   editModal.classList.remove('hidden');
 }
-document.getElementById('btnCancelEdit').addEventListener('click', ()=> editModal.classList.add('hidden'));
-document.getElementById('btnSaveEdit').addEventListener('click', async ()=>{
+document.getElementById('btnCancelEdit').addEventListener('click', () => editModal.classList.add('hidden'));
+document.getElementById('btnSaveEdit').addEventListener('click', async () => {
   const students = getStudents();
-  const idx = students.findIndex(s=>s.regId===editingId);
+  const idx = students.findIndex(s => s.regId === editingId);
   if(idx === -1) return;
-  EDIT_FIELDS.forEach(([key])=>{
-    students[idx][key] = document.getElementById(`edit_${key}`).value.trim();
+  EDIT_FIELDS.forEach(([key]) => {
+    students[idx][key] = document.getElementById('edit_' + key).value.trim();
   });
   saveStudents(students);
   if(isGoogleSheetsEnabled()) await updateStudentInGoogleSheets(students[idx]);
-  addLog('Admin', `Alihariri rekodi ya ${students[idx].firstName} ${students[idx].lastName}`);
+  addLog('Admin', 'Alihariri rekodi ya ' + students[idx].firstName + ' ' + students[idx].lastName);
   editModal.classList.add('hidden');
   renderAdmin();
-  Swal.fire({ icon:'success', title:'Mabadiliko yamehifadhiwa', timer:1200, showConfirmButton:false });
+  Swal.fire({icon: 'success', title: 'Mabadiliko yamehifadhiwa', timer: 1200, showConfirmButton: false});
 });
 
 function renderLogs(){
   const logs = pruneExpiredLogs();
   const list = document.getElementById('logList');
   if(!logs.length){ list.innerHTML = '<div class="empty-state">Bado hakuna kumbukumbu za saa 24 zilizopita.</div>'; return; }
-  list.innerHTML = logs.map(l=>`
+  list.innerHTML = logs.map(l => `
     <div class="log-item">
       <div class="log-time">${fmtTime(l.time)}</div>
-      <div><span class="log-actor">${escapeHtml(l.actor)}</span> — ${escapeHtml(l.action)}</div>
+      <div><span class="log-actor">${escapeHtml(l.actor)}</span> - ${escapeHtml(l.action)}</div>
     </div>
   `).join('');
 }
 
-/* =====================================================================
-   PRINT / PDF
-   ===================================================================== */
+/* ADMIN TABS */
+document.querySelectorAll('.admin-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.admin-tab-content').forEach(c => c.classList.add('hidden'));
+    tab.classList.add('active');
+    const target = document.getElementById('tab-' + tab.dataset.tab);
+    if(target) target.classList.remove('hidden');
+    if(tab.dataset.tab === 'choir') renderChoirTable();
+    if(tab.dataset.tab === 'church') renderChurchTable();
+  });
+});
+
+function renderChoirTable(){
+  const body = document.getElementById('choirBody');
+  const empty = document.getElementById('choirEmpty');
+  if(!body) return;
+  const list = getStudents().filter(s => s.choir === 'Ndio');
+  if(!list.length){
+    body.innerHTML = '';
+    if(empty) empty.classList.remove('hidden');
+    return;
+  }
+  if(empty) empty.classList.add('hidden');
+  body.innerHTML = list.map((s, i) => {
+    const accepted = s.choirStatus === 'accepted';
+    return `
+      <tr>
+        <td>${i + 1}</td>
+        <td>${escapeHtml(s.firstName)} ${escapeHtml(s.lastName)}</td>
+        <td>${escapeHtml(s.phone1)}</td>
+        <td>${escapeHtml(s.course)}</td>
+        <td>${escapeHtml(s.address || '-')}</td>
+        <td><span style="display:inline-flex;padding:4px 10px;border-radius:999px;font-size:11px;font-weight:700;${accepted ? 'background:#eafaf3;color:#11614a;border:1px solid #bfe8d3;' : 'background:#fff4d9;color:#7a5a00;border:1px solid #efdb9d;'}">${accepted ? 'Amekubaliwa' : 'Anasubiri'}</span></td>
+        <td>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;">
+            <button class="icon-btn" title="WhatsApp" data-choir-act="whatsapp" data-id="${s.regId}">WA</button>
+            ${!accepted ? `<button class="icon-btn" title="Kubali" data-choir-act="accept" data-id="${s.regId}">K</button>` : ''}
+          </div>
+        </td>
+      </tr>
+    `;
+  }).join('');
+}
+
+document.getElementById('choirBody')?.addEventListener('click', (e) => {
+  const btn = e.target.closest('button'); if(!btn) return;
+  const id = btn.dataset.id;
+  const student = getStudents().find(s => s.regId === id);
+  if(!student) return;
+  if(btn.dataset.choirAct === 'whatsapp') openStudentWhatsApp(student);
+  if(btn.dataset.choirAct === 'accept'){
+    Swal.fire({
+      icon: 'question', title: 'Kubali Kwaya?',
+      text: 'Kumkubali ' + student.firstName + ' ' + student.lastName + ' kwenye Kwaya?',
+      showCancelButton: true, confirmButtonText: 'Ndiyo, Kubali', cancelButtonText: 'Ghairi', confirmButtonColor: '#1a7a5a'
+    }).then((res) => {
+      if(!res.isConfirmed) return;
+      const students = getStudents();
+      const idx = students.findIndex(s => s.regId === id);
+      if(idx === -1) return;
+      students[idx].choirStatus = 'accepted';
+      saveStudents(students);
+      addLog('Admin', 'Alimkubali ' + student.firstName + ' kwenye Kwaya');
+      renderChoirTable();
+      Swal.fire({icon: 'success', title: 'Amekubaliwa', timer: 1400, showConfirmButton: false});
+    });
+  }
+});
+
+function renderChurchTable(){
+  const body = document.getElementById('churchBody');
+  const empty = document.getElementById('churchEmpty');
+  if(!body) return;
+  const list = getStudents().filter(s => s.needChurch === 'Ndio');
+  if(!list.length){
+    body.innerHTML = '';
+    if(empty) empty.classList.remove('hidden');
+    return;
+  }
+  if(empty) empty.classList.add('hidden');
+  body.innerHTML = list.map((s, i) => {
+    const resolved = s.churchHelpStatus === 'resolved';
+    return `
+      <tr>
+        <td>${i + 1}</td>
+        <td>${escapeHtml(s.firstName)} ${escapeHtml(s.lastName)}</td>
+        <td>${escapeHtml(s.phone1)}</td>
+        <td>${escapeHtml(s.address || '-')}</td>
+        <td>${escapeHtml(s.church || '-')}</td>
+        <td>${escapeHtml(s.churchPreference || '-')}</td>
+        <td><span style="display:inline-flex;padding:4px 10px;border-radius:999px;font-size:11px;font-weight:700;${resolved ? 'background:#eafaf3;color:#11614a;border:1px solid #bfe8d3;' : 'background:#fff4d9;color:#7a5a00;border:1px solid #efdb9d;'}">${resolved ? 'Ameshapata' : 'Anahitaji'}</span></td>
+        <td>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;">
+            <button class="icon-btn" title="WhatsApp" data-church-act="whatsapp" data-id="${s.regId}">WA</button>
+            ${!resolved ? `<button class="icon-btn" title="Ameshapata" data-church-act="resolve" data-id="${s.regId}">S</button>` : ''}
+          </div>
+        </td>
+      </tr>
+    `;
+  }).join('');
+}
+
+document.getElementById('churchBody')?.addEventListener('click', (e) => {
+  const btn = e.target.closest('button'); if(!btn) return;
+  const id = btn.dataset.id;
+  const student = getStudents().find(s => s.regId === id);
+  if(!student) return;
+  if(btn.dataset.churchAct === 'whatsapp') openStudentWhatsApp(student);
+  if(btn.dataset.churchAct === 'resolve'){
+    Swal.fire({
+      icon: 'question', title: 'Ameshapata Kanisa?',
+      text: 'Kumweka ' + student.firstName + ' ' + student.lastName + ' kama ameshapata kanisa?',
+      showCancelButton: true, confirmButtonText: 'Ndiyo', cancelButtonText: 'Ghairi', confirmButtonColor: '#1a7a5a'
+    }).then((res) => {
+      if(!res.isConfirmed) return;
+      const students = getStudents();
+      const idx = students.findIndex(s => s.regId === id);
+      if(idx === -1) return;
+      students[idx].churchHelpStatus = 'resolved';
+      saveStudents(students);
+      addLog('Admin', 'Alimweka ' + student.firstName + ' kama ameshapata kanisa');
+      renderChurchTable();
+      Swal.fire({icon: 'success', title: 'Imesasishwa', timer: 1400, showConfirmButton: false});
+    });
+  }
+});
+
+/* PRINT / PDF */
 function printStudentProfile(student){
   const w = window.open('', '_blank');
   if(!w){
-    Swal.fire({icon:'warning', title:'Popup imezuiwa', text:'Ruhusu popup ya browser ili kupakua PDF.'});
+    Swal.fire({icon: 'warning', title: 'Popup imezuiwa', text: 'Ruhusu popup ya browser.'});
     return;
   }
-  const createdAt = new Date(student.createdAt).toLocaleDateString('sw-TZ', { day:'2-digit', month:'long', year:'numeric' });
+  const createdAt = new Date(student.createdAt).toLocaleDateString('sw-TZ', { day: '2-digit', month: 'long', year: 'numeric' });
   const fields = [
-    ['Namba ya Usajili', student.regId], ['Jina Kamili', `${student.firstName || ''} ${student.lastName || ''}`],
+    ['Namba ya Usajili', student.regId], ['Jina Kamili', (student.firstName || '') + ' ' + (student.lastName || '')],
     ['Jinsia', student.gender === 'Me' ? 'Mwanaume' : 'Mwanamke'], ['Tarehe ya Kuzaliwa', student.dob],
     ['Registration Number', student.regNo], ['Kozi', student.course], ['College', student.college],
     ['Mwaka wa Masomo', student.year], ['Simu Binafsi', student.phone1], ['Simu Mbadala', student.phone2],
     ['Mkoa', student.address], ['Kanisa', student.church], ['Ushiriki wa Awali', student.prevService],
     ['Anahitaji msaada wa kanisa', student.needChurch], ['Kwaya', student.choir]
-  ].map(([label, value]) => `<div class="field"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value || '-')}</strong></div>`).join('');
+  ].map(([label, value]) => '<div class="field"><span>' + escapeHtml(label) + '</span><strong>' + escapeHtml(value || '-') + '</strong></div>').join('');
 
   w.document.write(`
     <html><head><title>Fomu ya ${escapeHtml(student.firstName || '')} - TUCASA</title>
@@ -1906,12 +1902,11 @@ function printStudentProfile(student){
         .field{padding:10px 12px;border-bottom:1px solid #d8e6df}.field:nth-child(odd){border-right:1px solid #d8e6df}.field:nth-last-child(-n+2){border-bottom:0}
         .field span{display:block;color:#6d8f80;font-size:10px;text-transform:uppercase;font-weight:700;margin-bottom:4px}.field strong{font-size:13px;color:#123b31}
         .footer{margin-top:24px;border-top:2px solid #ffd700;padding-top:10px;text-align:center;color:#5f7d70;font-size:11px}
-        @media print{.header{print-color-adjust:exact;-webkit-print-color-adjust:exact}.field{break-inside:avoid}}
       </style>
     </head><body>
       <div class="header"><h1>TUCASA UDSM MABIBO HOSTEL (TUMH)</h1><p>Fomu ya Taarifa za Mwanachama</p><div class="meta">Imetengenezwa: ${createdAt}</div></div>
       <h2>Taarifa za Usajili</h2><div class="grid">${fields}</div>
-      <div class="footer">TUCASA UDSM MABIBO HOSTEL (TUMH) · Hati ya taarifa ya mwanachama</div>
+      <div class="footer">TUCASA UDSM MABIBO HOSTEL (TUMH)</div>
     </body></html>
   `);
   w.document.close();
@@ -1919,148 +1914,119 @@ function printStudentProfile(student){
   setTimeout(() => w.print(), 500);
 }
 
-document.getElementById('btnPrintList').addEventListener('click', ()=>{
+document.getElementById('btnPrintList').addEventListener('click', () => {
   const list = filteredStudents();
   const total = list.length;
-  const reportDate = new Date().toLocaleDateString('sw-TZ', { day:'2-digit', month:'long', year:'numeric' });
+  const reportDate = new Date().toLocaleDateString('sw-TZ', { day: '2-digit', month: 'long', year: 'numeric' });
   const rows = list.map((s, idx) => `
     <tr>
-      <td>${idx + 1}</td>
-      <td><strong>${escapeHtml(s.regId)}</strong></td>
+      <td>${idx + 1}</td><td><strong>${escapeHtml(s.regId)}</strong></td>
       <td>${escapeHtml(s.firstName)} ${escapeHtml(s.lastName)}</td>
       <td>${escapeHtml(s.gender === 'Me' ? 'Mwanaume' : 'Mwanamke')}</td>
-      <td>${escapeHtml(s.regNo || '-')}</td>
-      <td>${escapeHtml(s.course || '-')}</td>
-      <td>${escapeHtml(s.college || '-')}</td>
-      <td>${escapeHtml(s.year || '-')}</td>
-      <td>${escapeHtml(s.phone1 || '-')}</td>
-      <td>${escapeHtml(s.phone2 || '-')}</td>
-      <td>${escapeHtml(s.church || '-')}</td>
-      <td>${escapeHtml(s.needChurch || '-')}</td>
+      <td>${escapeHtml(s.regNo || '-')}</td><td>${escapeHtml(s.course || '-')}</td>
+      <td>${escapeHtml(s.college || '-')}</td><td>${escapeHtml(s.year || '-')}</td>
+      <td>${escapeHtml(s.phone1 || '-')}</td><td>${escapeHtml(s.phone2 || '-')}</td>
+      <td>${escapeHtml(s.church || '-')}</td><td>${escapeHtml(s.needChurch || '-')}</td>
       <td>${escapeHtml(s.choir || '-')}</td>
     </tr>
   `).join('');
 
   const w = window.open('', '_blank');
-  if(!w){
-    Swal.fire({icon:'warning', title:'Popup imezuiwa', text:'Ruhusu popup ya browser ili kupakua PDF.'});
-    return;
-  }
+  if(!w){ Swal.fire({icon: 'warning', title: 'Popup imezuiwa'}); return; }
   w.document.write(`
-    <html>
-      <head>
-        <title>Database ya Wanachama - TUCASA</title>
-        <style>
-          @page { size: landscape; margin: 12mm; }
-          * { box-sizing: border-box; }
-          body { margin: 0; font-family: Arial, sans-serif; color: #123b31; background: #fff; }
-          .header { display:flex; align-items:center; justify-content:space-between; padding:18px 22px; color:#fff; background:linear-gradient(135deg,#0a3d2e,#1a7a5a); border-radius:14px; }
-          .header h1 { margin:0 0 5px; font-size:22px; letter-spacing:.3px; }
-          .header p { margin:0; color:#d9f4e7; font-size:12px; }
-          .header .date { text-align:right; font-size:12px; color:#fff4bb; }
-          .summary { display:grid; grid-template-columns:1fr; gap:10px; margin:14px 0; }
-          .summary-card { padding:12px 15px; border:1px solid #d8e6df; border-radius:10px; background:#f3faf6; }
-          .summary-card strong { display:block; color:#0a3d2e; font-size:20px; }
-          .summary-card span { color:#5f7d70; font-size:11px; font-weight:700; }
-          table { width:100%; border-collapse:collapse; table-layout:auto; font-size:9px; }
-          thead { display:table-header-group; }
-          th, td { border:1px solid #cfe0d8; padding:6px 5px; text-align:left; vertical-align:middle; }
-          th { background:#0a3d2e; color:#fff; font-size:8.5px; text-transform:uppercase; }
-          tbody tr:nth-child(even) { background:#f3faf6; }
-          tbody tr:nth-child(odd) { background:#fff; }
-          .empty { padding:24px; text-align:center; color:#6d8f80; }
-          .footer { margin-top:14px; padding-top:8px; border-top:2px solid #ffd700; color:#5f7d70; font-size:10px; text-align:center; }
-        </style>
-      </head>
-      <body>
-        <section class="header">
-          <div>
-            <h1>TUCASA UDSM MABIBO HOSTEL (TUMH)</h1>
-            <p>Database ya Usajili wa Wanachama</p>
-          </div>
-          <div class="date">Tarehe ya ripoti<br><strong>${reportDate}</strong></div>
-        </section>
-        <section class="summary">
-          <div class="summary-card"><strong>${total}</strong><span>Jumla ya wanachama</span></div>
-        </section>
-        <table>
-          <thead><tr><th>#</th><th>Reg ID</th><th>Jina</th><th>Jinsia</th><th>Reg No.</th><th>Kozi</th><th>College</th><th>Mwaka</th><th>Simu</th><th>Simu Mbadala</th><th>Kanisa</th><th>Usaidizi Kanisa</th><th>Kwaya</th></tr></thead>
-          <tbody>${rows || '<tr><td class="empty" colspan="13">Hakuna data ya kuchapisha</td></tr>'}</tbody>
-        </table>
-        <div class="footer">TUCASA UDSM MABIBO HOSTEL (TUMH) · Ripoti ya usajili</div>
-      </body>
-    </html>
+    <html><head><title>Database - TUCASA</title>
+      <style>
+        @page{size:landscape;margin:12mm}*{box-sizing:border-box}
+        body{margin:0;font-family:Arial,sans-serif;color:#123b31}
+        .header{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;color:#fff;background:linear-gradient(135deg,#0a3d2e,#1a7a5a);border-radius:14px}
+        .header h1{margin:0 0 5px;font-size:22px}.header p{margin:0;color:#d9f4e7;font-size:12px}
+        .header .date{text-align:right;font-size:12px;color:#fff4bb}
+        .summary{margin:14px 0;padding:12px 15px;border:1px solid #d8e6df;border-radius:10px;background:#f3faf6}
+        .summary strong{display:block;color:#0a3d2e;font-size:20px}.summary span{color:#5f7d70;font-size:11px;font-weight:700}
+        table{width:100%;border-collapse:collapse;font-size:9px}
+        th,td{border:1px solid #cfe0d8;padding:6px 5px;text-align:left}
+        th{background:#0a3d2e;color:#fff;font-size:8.5px;text-transform:uppercase}
+        tbody tr:nth-child(even){background:#f3faf6}
+        .footer{margin-top:14px;padding-top:8px;border-top:2px solid #ffd700;color:#5f7d70;font-size:10px;text-align:center}
+      </style>
+    </head><body>
+      <section class="header">
+        <div><h1>TUCASA UDSM MABIBO HOSTEL (TUMH)</h1><p>Database ya Usajili wa Wanachama</p></div>
+        <div class="date">Tarehe<br><strong>${reportDate}</strong></div>
+      </section>
+      <section class="summary"><strong>${total}</strong><span>Jumla ya wanachama</span></section>
+      <table>
+        <thead><tr><th>#</th><th>Reg ID</th><th>Jina</th><th>Jinsia</th><th>Reg No.</th><th>Kozi</th><th>College</th><th>Mwaka</th><th>Simu</th><th>Simu Mbadala</th><th>Kanisa</th><th>Msaada</th><th>Kwaya</th></tr></thead>
+        <tbody>${rows || '<tr><td colspan="13" style="text-align:center;padding:24px;color:#6d8f80;">Hakuna data</td></tr>'}</tbody>
+      </table>
+      <div class="footer">TUCASA UDSM MABIBO HOSTEL (TUMH)</div>
+    </body></html>
   `);
   w.document.close();
   w.focus();
   setTimeout(() => w.print(), 500);
 });
 
-/* =====================================================================
-   EXPORT / BACKUP / RESTORE
-   ===================================================================== */
-document.getElementById('btnExportCsv').addEventListener('click', ()=>{
+/* EXPORT / BACKUP */
+document.getElementById('btnExportCsv').addEventListener('click', () => {
   const all = getStudents();
-  if(!all.length){ Swal.fire({icon:'info', title:'Hakuna Data ya Kuhamisha'}); return; }
-  const headers = ['regId','firstName','lastName','gender','dob','regNo','course','college','year','phone1','phone2','address','church','prevService','needChurch','choir','createdAt'];
-  // CSV injection protection
+  if(!all.length){ Swal.fire({icon: 'info', title: 'Hakuna Data'}); return; }
+  const headers = ['regId','firstName','lastName','gender','dob','regNo','course','college','year','phone1','phone2','address','church','prevService','churchPreference','needChurch','choir','choirStatus','churchHelpStatus','createdAt'];
   const csvValue = value => {
     let str = String(value ?? '');
     if(/^[=+\-@\t\r]/.test(str)) str = "'" + str;
-    return `"${str.replace(/"/g,'""')}"`;
+    return '"' + str.replace(/"/g, '""') + '"';
   };
   const rows = all.map(s => headers.map(h => csvValue(s[h])).join(','));
   const csv = '\uFEFF' + headers.join(',') + '\n' + rows.join('\n');
-  const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+  const blob = new Blob([csv], {type: 'text/csv;charset=utf-8;'});
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = `tucasa_database_${new Date().toISOString().slice(0,10)}.csv`;
+  a.download = 'tucasa_database_' + new Date().toISOString().slice(0, 10) + '.csv';
   a.click();
   URL.revokeObjectURL(a.href);
-  addLog(session.role==='admin'?'Admin':'Clerk', 'Alihamisha data kwenda CSV');
+  addLog(session.role === 'admin' ? 'Admin' : 'Clerk', 'Alihamisha data kwenda CSV');
 });
 
-document.getElementById('btnBackupJson').addEventListener('click', ()=>{
+document.getElementById('btnBackupJson').addEventListener('click', () => {
   const payload = { students: getStudents(), logs: getLogs(), counter: readStoredValue(LS_COUNTER, '0') || '0' };
-  const blob = new Blob([JSON.stringify(payload, null, 2)], {type:'application/json'});
+  const blob = new Blob([JSON.stringify(payload, null, 2)], {type: 'application/json'});
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = `tucasa_backup_${Date.now()}.json`;
+  a.download = 'tucasa_backup_' + Date.now() + '.json';
   a.click();
-  addLog(session.role==='admin'?'Admin':'Clerk', 'Alifanya Backup (JSON)');
+  addLog(session.role === 'admin' ? 'Admin' : 'Clerk', 'Alifanya Backup');
 });
 
-document.getElementById('btnRestoreJson').addEventListener('click', ()=> document.getElementById('restoreInput').click());
-document.getElementById('restoreInput').addEventListener('change', (e)=>{
+document.getElementById('btnRestoreJson').addEventListener('click', () => document.getElementById('restoreInput').click());
+document.getElementById('restoreInput').addEventListener('change', (e) => {
   const file = e.target.files[0]; if(!file) return;
   const reader = new FileReader();
   reader.onload = () => {
-    try{
+    try {
       const data = JSON.parse(reader.result);
       Swal.fire({
-        icon:'warning', title:'Rejesha Data?',
-        text:'Kitendo hiki kitabadilisha data iliyopo. Endelea?',
-        showCancelButton:true, confirmButtonText:'Ndiyo, Rejesha', cancelButtonText:'Ghairi'
-      }).then(res=>{
+        icon: 'warning', title: 'Rejesha Data?',
+        text: 'Kitendo hiki kitabadilisha data iliyopo. Endelea?',
+        showCancelButton: true, confirmButtonText: 'Ndiyo, Rejesha', cancelButtonText: 'Ghairi'
+      }).then(res => {
         if(!res.isConfirmed) return;
         if(Array.isArray(data.students)) saveStudents(data.students);
         if(Array.isArray(data.logs)) saveLogs(data.logs);
         if(data.counter) writeStoredValue(LS_COUNTER, String(data.counter));
-        addLog('Admin', 'Alirejesha data kutoka Backup');
+        addLog('Admin', 'Alirejesha data');
         renderAdmin();
-        Swal.fire({icon:'success', title:'Data Imerejeshwa'});
+        Swal.fire({icon: 'success', title: 'Data Imerejeshwa'});
       });
-    }catch(err){
-      Swal.fire({icon:'error', title:'Faili si Sahihi', text:'Hakikisha umepakia faili sahihi la JSON.'});
+    } catch(err){
+      Swal.fire({icon: 'error', title: 'Faili si Sahihi'});
     }
   };
   reader.readAsText(file);
   e.target.value = '';
 });
 
-/* =====================================================================
-   ANZIA
-   ===================================================================== */
+/* INIT */
 initLargeDatabase().then(async () => {
   pruneExpiredLogs();
   applyBrandLogo('');
@@ -2068,14 +2034,12 @@ initLargeDatabase().then(async () => {
   showView('login');
 });
 
-/* Service Worker */
 if('serviceWorker' in navigator){
-  window.addEventListener('load', ()=>{
-    navigator.serviceWorker.register('sw.js').catch(()=>{});
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
   });
 }
 
-/* Install App (PWA) */
 let deferredInstallPrompt = null;
 const installAppBtn = document.getElementById('installAppBtn');
 window.addEventListener('beforeinstallprompt', (event) => {
@@ -2085,7 +2049,7 @@ window.addEventListener('beforeinstallprompt', (event) => {
 });
 installAppBtn.addEventListener('click', async () => {
   if(!deferredInstallPrompt){
-    Swal.fire({ icon:'info', title:'Install App', text:'Fungua menu ya browser kisha chagua "Install app" au "Add to Home screen".' });
+    Swal.fire({icon: 'info', title: 'Install App', text: 'Fungua menu ya browser na uchague "Install app".'});
     return;
   }
   deferredInstallPrompt.prompt();
